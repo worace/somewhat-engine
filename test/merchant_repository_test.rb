@@ -25,7 +25,7 @@ class MerchantRepositoryTest < Minitest::Test
 		assert_equal Merchant, result
 	end
 
-	def test_merchant_objects_reflect_merchant_repository_as_their_repository_of_record
+	def test_merchant_objects_reflect_merchant_repository_as_their_repository
 		merchant_repository = MerchantRepository.new
 		merchant_repository.create_merchant_objects
 		result = merchant_repository.merchants[0].repository.class
