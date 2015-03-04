@@ -32,26 +32,32 @@ class MerchantTest < Minitest::Test
 		assert_equal "No_ID", result
 	end
 
+	def test_it_has_a_repository
+		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
+		result = merchant.repository 
+		assert_equal "SalesEngine", result
+	end
+
 	def test_it_has_a_name
-		merchant = Merchant.new(1, "Tony", "05-05-1980", "03-05-2015")
+		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
 		result = merchant.name 
 		assert_equal "Tony", result
 	end
 
 	def test_it_has_a_created_date
-		merchant = Merchant.new(1, "Tony", "05-05-1980", "03-05-2015")
+		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
 		result = merchant.created_at
 		assert_equal "05-05-1980", result
 	end
 
 	def test_it_has_a_updated_date
-		merchant = Merchant.new(1, "Tony", "05-05-1980", "03-05-2015")
+		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
 		result = merchant.updated_at
 		assert_equal "03-05-2015", result
 	end
 
 	def test_it_has_an_id
-		merchant = Merchant.new(1, "Tony", "05-05-1980", "03-05-2015")
+		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
 		result = merchant.id
 		assert_equal 1, result
 	end

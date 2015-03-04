@@ -1,8 +1,9 @@
 class Merchant
 
-	attr_accessor :id, :name, :created_at, :updated_at
+	attr_accessor :repository, :id, :name, :created_at, :updated_at
 
-	def initialize(id = "No_ID",name = "No_Name",created = "No_Date",updated = "No_Update")
+	def initialize(repository = "No_Repo",id = "No_ID",name = "No_Name",created = "No_Date",updated = "No_Update")
+		@repository = repository
 		@id = id
 		@name = name
 		@created_at = created
