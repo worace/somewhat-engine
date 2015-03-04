@@ -4,10 +4,10 @@ require_relative './merchant'
 class MerchantRepository
 
   attr_accessor :merchants,
-                :sales_engine
+                :parent_engine
 
   def initialize(sales_engine = nil)
-    @sales_engine = sales_engine
+    @parent_engine = sales_engine
     @merchants = []
     @merchant_parser = MerchantParser.new
     @merchant_parser.read_merchant_data_from_csv_file
@@ -15,7 +15,7 @@ class MerchantRepository
 
   def create_merchant_objects
     @merchant_parser.merchant_data.each do |data|
-     @merchants << Merchant.new(self,data)
+      @merchants << Merchant.new(self,data)
    end
  end
 

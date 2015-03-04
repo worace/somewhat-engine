@@ -4,10 +4,10 @@ require_relative './customer'
 class CustomerRepository
 
   attr_accessor :customers,
-                :sales_engine
+                :parent_engine
 
   def initialize(sales_engine = nil)
-    @sales_engine = sales_engine
+    @parent_engine = sales_engine
     @customers = []
     @customer_parser = CustomerParser.new
     @customer_parser.read_customer_data_from_csv_file
@@ -15,7 +15,7 @@ class CustomerRepository
 
   def create_customer_objects
     @customer_parser.customer_data.each do |data|
-     @customers << Customer.new(self,data)
+      @customers << Customer.new(self,data)
    end
  end
 

@@ -7,8 +7,8 @@ class CustomerParser
 
   def read_customer_data_from_csv_file
     @customer_data = CSV.open("../data/customers.csv",
-      headers: true,
-      header_converters: :symbol)
+                              headers: true,
+                              header_converters: :symbol)
   end
 
   def print_out_all_data_from_csv_file

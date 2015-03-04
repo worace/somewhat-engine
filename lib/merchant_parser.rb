@@ -7,8 +7,8 @@ class MerchantParser
 
   def read_merchant_data_from_csv_file
     @merchant_data = CSV.open("../data/merchants.csv",
-      headers: true,
-      header_converters: :symbol)
+                              headers: true,
+                              header_converters: :symbol)
   end
 
   def print_out_all_data_from_csv_file

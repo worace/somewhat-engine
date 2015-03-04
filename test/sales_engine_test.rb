@@ -21,13 +21,13 @@ class SalesEngineTest < Minitest::Test
 
   def test_the_merchant_repository_knows_its_sales_engine_is_this_sales_engine
     sales_engine = SalesEngine.new
-    result = sales_engine.merchant_repository.sales_engine
+    result = sales_engine.merchant_repository.parent_engine
     assert_equal sales_engine.object_id, result.object_id
   end 
 
   def test_the_customer_repository_knows_its_sales_engine_is_this_sales_engine
     sales_engine = SalesEngine.new
-    result = sales_engine.customer_repository.sales_engine
+    result = sales_engine.customer_repository.parent_engine
     assert_equal sales_engine.object_id, result.object_id
   end 
 
