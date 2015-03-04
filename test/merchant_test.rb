@@ -2,63 +2,43 @@ require 'minitest'
 require 'minitest/pride'
 require 'minitest/autorun'
 require_relative '../lib/merchant'
+require_relative '../lib/merchant_repository'
 
 class MerchantTest < Minitest::Test 
-	def test_it_exists
-		assert true
+
+	def test_merchant_objects_have_a_repository
+		merchant_repository = MerchantRepository.new
+		merchant_repository.create_merchant_objects
+		result = merchant_repository.merchants[0].repository
+		assert_equal merchant_repository, result
 	end
 
-	def test_it_doesnt_need_a_name
-		merchant = Merchant.new
-		result = merchant.name 
-		assert_equal "No_Name", result
+	def test_merchant_objects_have_a_fixnum_for_id
+		merchant_repository = MerchantRepository.new
+		merchant_repository.create_merchant_objects
+		result = merchant_repository.merchants[0].id.class
+		assert_equal Fixnum, result
 	end
 
-	def test_it_doesnt_need_a_created_date
-		merchant = Merchant.new
-		result = merchant.created_at
-		assert_equal "No_Date", result
+	def test_merchant_objects_have_a_string_for_name
+		merchant_repository = MerchantRepository.new
+		merchant_repository.create_merchant_objects
+		result = merchant_repository.merchants[0].name.class
+		assert_equal String, result
 	end
 
-	def test_it_doesnt_need_a_updated_date
-		merchant = Merchant.new
-		result = merchant.updated_at
-		assert_equal "No_Update", result
+	def test_merchant_objects_have_a_string_for_created_at
+		merchant_repository = MerchantRepository.new
+		merchant_repository.create_merchant_objects
+		result = merchant_repository.merchants[0].created_at.class
+		assert_equal String, result
 	end
 
-	def test_it_doesnt_need_an_id
-		merchant = Merchant.new
-		result = merchant.id
-		assert_equal "No_ID", result
+	def test_merchant_objects_have_a_string_for_updated_at
+		merchant_repository = MerchantRepository.new
+		merchant_repository.create_merchant_objects
+		result = merchant_repository.merchants[0].updated_at.class
+		assert_equal String, result
 	end
 
-	def test_it_has_a_repository
-		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
-		result = merchant.repository 
-		assert_equal "SalesEngine", result
-	end
-
-	def test_it_has_a_name
-		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
-		result = merchant.name 
-		assert_equal "Tony", result
-	end
-
-	def test_it_has_a_created_date
-		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
-		result = merchant.created_at
-		assert_equal "05-05-1980", result
-	end
-
-	def test_it_has_a_updated_date
-		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
-		result = merchant.updated_at
-		assert_equal "03-05-2015", result
-	end
-
-	def test_it_has_an_id
-		merchant = Merchant.new("SalesEngine", 1, "Tony", "05-05-1980", "03-05-2015")
-		result = merchant.id
-		assert_equal 1, result
-	end
 end

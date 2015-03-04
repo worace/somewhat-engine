@@ -18,7 +18,7 @@ class MerchantRepositoryTest < Minitest::Test
 		assert_equal Array, result
 	end
 
-	def test_it_creates_an_array_of_merchant_objects_from_CSV
+	def test_it_creates_an_array_of_merchant_objects_from_csv
 		merchant_repository = MerchantRepository.new
 		merchant_repository.create_merchant_objects
 		result = merchant_repository.merchants[0].class
