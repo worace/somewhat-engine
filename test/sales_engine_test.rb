@@ -42,4 +42,11 @@ class SalesEngineTest < Minitest::Test
     assert_equal engine.object_id, result.object_id
   end
 
+  def test_the_item_repository_knows_its_sales_engine_is_this_sales_engine
+    engine = SalesEngine.new
+    engine.startup
+    result = engine.item_repository.parent_engine
+    assert_equal engine.object_id, result.object_id
+  end
+
 end
