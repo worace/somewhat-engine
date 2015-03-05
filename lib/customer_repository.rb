@@ -64,35 +64,30 @@ class CustomerRepository
   end
 
   def find_all_by_id(match)
-    clear_data_storage
     @data_storage = customers.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_first_name(match)
-    clear_data_storage
     @data_storage = customers.find_all do |data|
       data.first_name.downcase == match.downcase
     end
   end
 
   def find_all_by_last_name(match)
-    clear_data_storage
     @data_storage = customers.find_all do |data|
       data.last_name.downcase == match.downcase
     end
   end
 
   def find_all_by_created_at(match)
-    clear_data_storage
     @data_storage = customers.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    clear_data_storage
     @data_storage = customers.find_all do |data|
       data.updated_at.downcase == match.downcase
     end

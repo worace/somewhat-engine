@@ -21,10 +21,6 @@ class InvoiceRepository
     end
   end
 
-  def clear_data_storage
-    @data_storage = []
-  end
-
   def all
     invoices
   end
@@ -70,42 +66,36 @@ class InvoiceRepository
   end
 
   def find_all_by_id(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_customer_id(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.customer_id == match
     end
   end
 
   def find_all_by_merchant_id(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.merchant_id == match
     end
   end
 
   def find_all_by_status(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.status.downcase == match.downcase
     end
   end
 
   def find_all_by_created_at(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    clear_data_storage
     @data_storage = invoices.find_all do |data|
       data.updated_at.downcase == match.downcase
     end
