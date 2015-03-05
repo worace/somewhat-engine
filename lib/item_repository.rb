@@ -21,10 +21,6 @@ class ItemRepository
     end
   end
 
-  def clear_data_storage
-    @data_storage = []
-  end
-
   def all
     items
   end

@@ -21,10 +21,6 @@ class CustomerRepository
     end
   end
 
-  def clear_data_storage
-    @data_storage = []
-  end
-
   def all
     customers
   end
