@@ -6,7 +6,7 @@ class MerchantParser
   attr_accessor :merchant_data
 
   def read_merchant_data_from_csv_file
-    @merchant_data ||= CSV.open("./data/merchants.csv",
+    @merchant_data = CSV.open("./data/merchants.csv",
                               headers: true,
                               header_converters: :symbol)
   end

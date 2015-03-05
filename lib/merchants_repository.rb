@@ -29,51 +29,35 @@ class MerchantRepository
   end
 
   def find_by_id(match)
-    merchant_id ||= merchants.find do |data|
-      data.id == match
-    end
+    merchants.find {|data| data.id == match}
   end
 
   def find_by_name(match)
-    merchant_name ||= merchants.find do |data|
-      data.name.downcase == match.downcase
-    end
+    merchants.find {|data| data.name.downcase == match.downcase}
   end
 
   def find_by_created_at(match)
-    merchant_created ||= merchants.find do |data|
-      data.created_at.downcase == match.downcase
-    end
+    merchants.find {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_by_updated_at(match)    
-    merchant_updated ||= merchants.find do |data|
-      data.updated_at.downcase == match.downcase
-    end
+      merchants.find {|data| data.updated_at.downcase == match.downcase}
   end
 
   def find_all_by_id(match)
-    merchant_all_id ||= merchants.find_all do |data|
-      data.id == match
-    end
+    merchants.find_all {|data| data.id == match}
   end
 
   def find_all_by_name(match)
-    merchant_all_name ||= merchants.find_all do |data|
-      data.name.downcase == match.downcase
-    end
+    merchants.find_all {|data| data.name.downcase == match.downcase}
   end
 
   def find_all_by_created_at(match)
-    merchant_all_created ||= merchants.find_all do |data|
-      data.created_at.downcase == match.downcase
-    end
+    merchants.find_all {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_all_by_updated_at(match)
-    merchant_all_updated ||= merchants.find_all do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    merchants.find_all {|data| data.updated_at.downcase == match.downcase}
   end
 
 end
