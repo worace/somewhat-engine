@@ -72,49 +72,42 @@ class ItemRepository
   end
 
     def find_all_by_id(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_name(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.name.downcase == match.downcase
     end
   end
 
   def find_all_by_description(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.description.downcase == match.downcase
     end
   end
 
   def find_all_by_unit_price(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.unit_price == match
     end
   end
 
   def find_all_by_merchant_id(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.merchant_id == match
     end
   end
 
   def find_all_by_created_at(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    clear_data_storage
     @data_storage = items.find_all do |data|
       data.updated_at.downcase == match.downcase
     end
