@@ -25,7 +25,7 @@ class CustomerRepository
     @data_storage = []
   end
 
-  def all 
+  def all
     customers
   end
 
@@ -34,48 +34,68 @@ class CustomerRepository
   end
 
   def find_by_id(match)
-    customers.find{|data| data.id == match}
+    customers.find do |data|
+      data.id == match
+    end
   end
 
   def find_by_first_name(match)
-    customers.find{|data| data.first_name.downcase == match.downcase}
+    customers.find do |data|
+      data.first_name.downcase == match.downcase
+    end
   end
 
   def find_by_last_name(match)
-    customers.find{|data| data.last_name.downcase == match.downcase}
+    customers.find do |data|
+      data.last_name.downcase == match.downcase
+    end
   end
 
   def find_by_created_at(match)
-    customers.find{|data| data.created_at.downcase == match.downcase}
+    customers.find do |data|
+      data.created_at.downcase == match.downcase
+    end
   end
 
   def find_by_updated_at(match)
-    customers.find{|data| data.updated_at.downcase == match.downcase}
+    customers.find do |data|
+      data.updated_at.downcase == match.downcase
+    end
   end
 
   def find_all_by_id(match)
     clear_data_storage
-    @data_storage = customers.find_all{|data| data.id == match}
+    @data_storage = customers.find_all do |data|
+      data.id == match
+    end
   end
 
   def find_all_by_first_name(match)
     clear_data_storage
-    @data_storage = customers.find_all{|data| data.first_name.downcase == match.downcase}
+    @data_storage = customers.find_all do |data|
+      data.first_name.downcase == match.downcase
+    end
   end
 
   def find_all_by_last_name(match)
     clear_data_storage
-    @data_storage = customers.find_all{|data| data.last_name.downcase == match.downcase}
+    @data_storage = customers.find_all do |data|
+      data.last_name.downcase == match.downcase
+    end
   end
 
   def find_all_by_created_at(match)
     clear_data_storage
-    @data_storage = customers.find_all{|data| data.created_at.downcase == match.downcase}
+    @data_storage = customers.find_all do |data|
+      data.created_at.downcase == match.downcase
+    end
   end
 
   def find_all_by_updated_at(match)
     clear_data_storage
-    @data_storage = customers.find_all{|data| data.updated_at.downcase == match.downcase}
+    @data_storage = customers.find_all do |data|
+      data.updated_at.downcase == match.downcase
+    end
   end
 
 end

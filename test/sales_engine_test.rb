@@ -33,36 +33,13 @@ class SalesEngineTest < Minitest::Test
     engine.startup
     result = engine.customer_repository.parent_engine
     assert_equal engine.object_id, result.object_id
-  end 
+  end
 
-  # def test_the_merchant_repository_size_is_same_as_all
-  #   engine = SalesEngine.new
-  #   engine.startup
-  #   result = engine.merchant_repository.merchants.size
-  #   assert_equal engine.all(:merchant_repository).size, result
-  # end
-
-  # def test_the_customers_repository_size_is_same_as_all
-  #   engine = SalesEngine.new
-  #   engine.startup
-  #   result = engine.customer_repository.customers.size
-  #   assert_equal engine.all(:customer_repository).size, result
-  # end
-
-  # def test_the_merchant_repository_can_return_random_merchant
-  #   engine = SalesEngine.new
-  #   engine.startup
-  #   result = engine.random(:merchant_repository).class
-  #   assert_equal Merchant, result
-  # end
-
-  # def test_the_customers_repository_can_return_random_customer
-  #   engine = SalesEngine.new
-  #   engine.startup
-  #   result = engine.random(:customer_repository).class
-  #   assert_equal Customer, result
-  # end
-
-
+  def test_the_invoice_repository_knows_its_sales_engine_is_this_sales_engine
+    engine = SalesEngine.new
+    engine.startup
+    result = engine.invoice_repository.parent_engine
+    assert_equal engine.object_id, result.object_id
+  end
 
 end

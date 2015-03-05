@@ -26,7 +26,7 @@ class MerchantRepository
     @data_storage = []
   end
 
-  def all 
+  def all
     merchants
   end
 
@@ -35,46 +35,60 @@ class MerchantRepository
   end
 
   def find_by_id(match)
-    merchants.find{|data| data.id == match}
+    merchants.find do |data|
+      data.id == match
+    end
   end
 
   def find_by_name(match)
-    merchants.find{|data| data.name.downcase == match.downcase}
+    merchants.find do |data|
+      data.name.downcase == match.downcase
+    end
   end
 
   def find_by_created_at(match)
-    merchants.find{|data| data.created_at.downcase == match.downcase}
+    merchants.find do |data|
+      data.created_at.downcase == match.downcase
+    end
   end
 
   def find_by_updated_at(match)
-    merchants.find{|data| data.updated_at.downcase == match.downcase}
+    merchants.find do |data|
+      data.updated_at.downcase == match.downcase
+    end
   end
 
   def find_all_by_id(match)
     clear_data_storage
-    @data_storage = merchants.find_all{|data| data.id == match}
+    @data_storage = merchants.find_all do |data|
+      data.id == match
+    end
   end
 
   def find_all_by_name(match)
     clear_data_storage
-    @data_storage = merchants.find_all{|data| data.name.downcase == match.downcase}
+    @data_storage = merchants.find_all do |data|
+      data.name.downcase == match.downcase
+    end
   end
 
   def find_all_by_created_at(match)
     clear_data_storage
-    @data_storage = merchants.find_all{|data| data.created_at.downcase == match.downcase}
+    @data_storage = merchants.find_all do |data|
+      data.created_at.downcase == match.downcase
+    end
   end
 
   def find_all_by_updated_at(match)
     clear_data_storage
-    @data_storage = merchants.find_all{|data| data.updated_at.downcase == match.downcase}
+    @data_storage = merchants.find_all do |data|
+      data.updated_at.downcase == match.downcase
+    end
   end
 
 end
 
 if __FILE__ == $0
   merchant_repository = MerchantRepository.new
-  puts merchant_repository.find_all_by_created_at("2012-03-27 14:53:59 utc").size
-  #puts merchant_repository.data_storage.size
-  #puts merchant_repository.merchants[4]
+  puts merchant_repository.merchants
 end
