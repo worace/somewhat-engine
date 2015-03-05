@@ -14,6 +14,7 @@ class CustomerParser
   def print_out_all_data_from_csv_file
     @customer_data.each {|data| puts data}
   end
+  
 end
 
 if __FILE__ == $0

@@ -1,5 +1,5 @@
 require 'minitest'
-require 'minitest/pride'
+#require 'minitest/pride'
 require 'minitest/autorun'
 require_relative '../lib/merchant_parser'
 
