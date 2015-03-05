@@ -1,8 +1,8 @@
 require 'csv'
-require_relative './merchant_repository'
-require_relative './customer_repository'
-require_relative './invoice_repository'
-require_relative './item_repository'
+require './lib/merchants_repository'
+require './lib/customers_repository'
+require './lib/invoices_repository'
+require './lib/items_repository'
 
 class SalesEngine
 
