@@ -2,39 +2,32 @@ require './test/test_helper'
 
 class MerchantTest < Minitest::Test 
 
-	def test_merchant_objects_have_a_repository
-		merchant_repository = MerchantRepository.new
-		merchant_repository.create_merchant_objects
-		result = merchant_repository.merchants[0].repository
-		assert_equal merchant_repository, result
+	def setup
+		@merchant = Merchant.new('fake repository', 
+															id: '1',
+															name: 'Target',   
+															created_at: '2012',	
+															updated_at: '2014')
+	end
+
+	def test_merchant_objects_can_store_a_repository
+		assert_equal 'fake repository', @merchant.repository
 	end
 
 	def test_merchant_objects_have_a_fixnum_for_id
-		merchant_repository = MerchantRepository.new
-		merchant_repository.create_merchant_objects
-		result = merchant_repository.merchants[0].id.class
-		assert_equal Fixnum, result
+		assert_equal Fixnum, @merchant.id.class
 	end
 
 	def test_merchant_objects_have_a_string_for_name
-		merchant_repository = MerchantRepository.new
-		merchant_repository.create_merchant_objects
-		result = merchant_repository.merchants[0].name.class
-		assert_equal String, result
+		assert_equal String, @merchant.name.class
 	end
 
 	def test_merchant_objects_have_a_string_for_created_at
-		merchant_repository = MerchantRepository.new
-		merchant_repository.create_merchant_objects
-		result = merchant_repository.merchants[0].created_at.class
-		assert_equal String, result
+		assert_equal String, @merchant.created_at.class
 	end
 
 	def test_merchant_objects_have_a_string_for_updated_at
-		merchant_repository = MerchantRepository.new
-		merchant_repository.create_merchant_objects
-		result = merchant_repository.merchants[0].updated_at.class
-		assert_equal String, result
+		assert_equal String, @merchant.updated_at.class
 	end
 
 end

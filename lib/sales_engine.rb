@@ -53,5 +53,6 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new
   engine.startup
-  puts engine.transactions_repository.all
+  puts engine.invoices_repository.find_by_id(1).invoices[0]
 end
+

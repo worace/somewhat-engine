@@ -16,98 +16,98 @@ class InvoiceRepository
     InvoiceRepository.new(
       invoices,
       parent_engine
-    ).invoices
+    )
   end
 
   def random
     InvoiceRepository.new(
       [invoices.sample],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_id(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.id == match}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_customer_id(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.customer_id == match}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_merchant_id(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.merchant_id == match}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_status(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.status.downcase == match.downcase}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_created_at(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.created_at.downcase == match.downcase}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_by_updated_at(match)
     InvoiceRepository.new(
       [invoices.find {|data| data.updated_at.downcase == match.downcase}],
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_id(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.id == match},
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_customer_id(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.customer_id == match},
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_merchant_id(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.merchant_id == match},
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_status(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.status.downcase == match.downcase},
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_created_at(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.created_at.downcase == match.downcase},
       parent_engine
-    ).invoices
+    )
   end
 
   def find_all_by_updated_at(match)
     InvoiceRepository.new(
       invoices.find_all {|data| data.updated_at.downcase == match.downcase},
       parent_engine
-    ).invoices
+    )
   end
 
 end
@@ -115,5 +115,5 @@ end
 
 if __FILE__ == $0
   invoice_repository = InvoiceRepository.new
-  puts invoice_repository.invoices
+  puts invoice_repository
 end

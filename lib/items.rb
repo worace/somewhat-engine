@@ -19,4 +19,13 @@ class Item
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
+
+  def invoice_items
+    repository.parent_engine.invoice_items_repository.find_all_by_item_id(id).invoice_items
+  end
+
+  def merchant
+    repository.parent_engine.merchants_repository.find_by_id(merchant_id).merchants[0]
+  end
+
 end

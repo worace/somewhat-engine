@@ -16,4 +16,8 @@ class Customer
     @updated_at = data[:updated_at]
   end
 
+  def invoice
+    repository.parent_engine.invoices_repository.find_by_customer_id(id).invoices[0]
+  end
+
 end

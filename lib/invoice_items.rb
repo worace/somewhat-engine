@@ -20,4 +20,12 @@ class InvoiceItem
     @updated_at = data[:updated_at]
   end
 
+  def invoice
+    repository.parent_engine.invoices_repository.find_by_id(invoice_id).invoices[0]
+  end
+
+  def item
+    repository.parent_engine.items_repository.find_by_id(item_id).items[0]
+  end
+
 end

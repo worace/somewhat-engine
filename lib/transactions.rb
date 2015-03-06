@@ -19,4 +19,9 @@ class Transaction
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
+
+  def invoice
+    repository.parent_engine.invoices_repository.find_by_id(invoice_id).invoices[0]
+  end
+
 end
