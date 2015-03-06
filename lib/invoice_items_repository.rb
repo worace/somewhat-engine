@@ -14,7 +14,7 @@ class InvoiceItemsRepository
 
   def create_invoice_items_objects
     @data.invoice_items_data.each do |data|
-      @invoice_items << InvoiceItems.new(self,data)
+      @invoice_items << InvoiceItem.new(self,data)
     end
   end
 

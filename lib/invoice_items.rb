@@ -1,4 +1,4 @@
-class InvoiceItems
+class InvoiceItem
 
   attr_accessor :repository,
                 :id,

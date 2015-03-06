@@ -25,7 +25,7 @@ class SalesEngine
 
   def initialize_customers_repository
     data = CustomerParser.new("./data/customers.csv")
-    @customers_repository = CustomerRepository.new(data, self)
+    @customers_repository = CustomerRepository.new(data.customer_data, self)
   end
 
   def initialize_items_repository
