@@ -53,5 +53,7 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new
   engine.startup
-  puts engine.merchants_repository.find_all_by_name("Williamson Group")
+  puts engine.merchants_repository.find_by_id(20)
+  #puts engine.merchants_repository.find_all_by_name("Williamson Group")
+
 end

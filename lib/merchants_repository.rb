@@ -21,35 +21,35 @@ class MerchantRepository
 
   def random
     MerchantRepository.new(
-      merchants.sample,
+      [merchants.sample],
       parent_engine
     ).merchants
   end
 
   def find_by_id(match)
     MerchantRepository.new(
-      merchants.find {|data| data.id == match},
+      [merchants.find {|data| data.id == match}],
       parent_engine
     ).merchants
   end
 
   def find_by_name(match)
     MerchantRepository.new(
-      merchants.find {|data| data.name.downcase == match.downcase},
+      [merchants.find {|data| data.name.downcase == match.downcase}],
       parent_engine
     ).merchants
   end
 
   def find_by_created_at(match)
     MerchantRepository.new(
-      merchants.find {|data| data.created_at.downcase == match.downcase},
+      [merchants.find {|data| data.created_at.downcase == match.downcase}],
       parent_engine
     ).merchants
   end
 
   def find_by_updated_at(match)    
     MerchantRepository.new(
-      merchants.find {|data| data.updated_at.downcase == match.downcase},
+      [merchants.find {|data| data.updated_at.downcase == match.downcase}],
       parent_engine
     ).merchants
   end
