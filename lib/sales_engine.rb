@@ -54,13 +54,4 @@ if __FILE__ == $0
   engine = SalesEngine.new
   engine.startup
   puts engine.merchants_repository.find_all_by_name("Williamson Group")
-  puts engine.merchants_repository.find_all_by_name("Williamson Group").merchants
-  puts engine.merchants_repository.find_all_by_name("Williamson Group").merchants.class
-
-  #puts engine.merchants_repository.merchants
-  # puts engine.customers_repository.class
-  # puts engine.items_repository.class
-  # puts engine.invoices_repository.class 
-  # puts engine.invoice_items_repository.class
-  # puts engine.transactions_repository.class
 end
