@@ -1,4 +1,3 @@
-require './lib/merchants_parser'
 require './lib/merchants'
 
 class MerchantRepository
@@ -6,17 +5,15 @@ class MerchantRepository
   attr_accessor :merchants,
                 :parent_engine
 
-  def initialize(sales_engine = nil)
+  def initialize(data, sales_engine = nil)
     @parent_engine = sales_engine
-    @merchants = []
-    @merchant_parser = MerchantParser.new
-    @merchant_parser.read_merchant_data_from_csv_file
-    create_merchant_objects
-  end
-
-  def create_merchant_objects
-    @merchant_parser.merchant_data.each do |data|
-      @merchants << Merchant.new(self,data)
+    @merchants = data.map do |element|
+      (element.kind_of? Merchant) ? element : (Merchant.new(self,element))
+      # if element.kind_of? Merchant
+      #   element
+      # else 
+      #   Merchant.new(self, element)
+      # end
     end
   end
 
@@ -41,7 +38,7 @@ class MerchantRepository
   end
 
   def find_by_updated_at(match)    
-      merchants.find {|data| data.updated_at.downcase == match.downcase}
+    merchants.find {|data| data.updated_at.downcase == match.downcase}
   end
 
   def find_all_by_id(match)
@@ -49,7 +46,10 @@ class MerchantRepository
   end
 
   def find_all_by_name(match)
-    merchants.find_all {|data| data.name.downcase == match.downcase}
+    MerchantRepository.new( 
+      merchants.find_all {|data| data.name.downcase == match.downcase},
+      parent_engine
+    )
   end
 
   def find_all_by_created_at(match)
@@ -65,5 +65,5 @@ end
 if __FILE__ == $0
   merchant_repository = MerchantRepository.new
   puts merchant_repository.find_all_by_name("Williamson Group")
-  puts merchant_repository.find_all_by_name("Hand-Spencer")
+  #puts merchant_repository.find_all_by_name("Hand-Spencer")
 end

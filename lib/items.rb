@@ -19,5 +19,4 @@ class Item
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
-
 end

@@ -1,22 +1,19 @@
 require './lib/invoices'
-require './lib/invoices_parser'
 
 class InvoiceRepository
 
   attr_accessor :invoices,
-                :parent_engine,
-                :data_storage
+                :parent_engine
 
-  def initialize(sales_engine = nil)
+  def initialize(data, sales_engine)
     @parent_engine = sales_engine
     @invoices = []
-    @invoice_parser = InvoiceParser.new
-    @invoice_parser.read_invoice_data_from_csv_file
+    @data = data
     create_invoice_objects
   end
 
   def create_invoice_objects
-    @invoice_parser.invoice_data.each do |data|
+    @data.invoice_data.each do |data|
       @invoices << Invoice.new(self,data)
     end
   end
@@ -66,37 +63,37 @@ class InvoiceRepository
   end
 
   def find_all_by_id(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_customer_id(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.customer_id == match
     end
   end
 
   def find_all_by_merchant_id(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.merchant_id == match
     end
   end
 
   def find_all_by_status(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.status.downcase == match.downcase
     end
   end
 
   def find_all_by_created_at(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    @data_storage = invoices.find_all do |data|
+    invoices.find_all do |data|
       data.updated_at.downcase == match.downcase
     end
   end

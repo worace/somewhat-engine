@@ -1,23 +1,19 @@
-require_relative './invoice_items_parser'
-require_relative './invoice_items'
+require './lib/invoice_items'
 
 class InvoiceItemsRepository
 
   attr_accessor :invoice_items,
-                :parent_engine,
-                :data_storage
+                :parent_engine
 
-  def initialize(sales_engine = nil)
+  def initialize(data, sales_engine)
     @parent_engine = sales_engine
     @invoice_items = []
-    @data_storage  = []
-    @invoice_items_parser = InvoiceItemsParser.new
-    @invoice_items_parser.read_invoice_items_data_from_csv_file
+    @data = data
     create_invoice_items_objects
   end
 
   def create_invoice_items_objects
-    @invoice_items_parser.invoice_items_data.each do |data|
+    @data.invoice_items_data.each do |data|
       @invoice_items << InvoiceItems.new(self,data)
     end
   end
@@ -73,43 +69,43 @@ class InvoiceItemsRepository
   end
 
   def find_all_by_id(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_item_id(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.item_id == match
     end
   end
 
   def find_all_by_invoice_id(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.invoice_id == match
     end
   end
 
   def find_all_by_quantity(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.quantity == match
     end
   end
 
   def find_all_by_unit_price(match)  
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.unit_price == match
     end
   end
 
   def find_all_by_created_at(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    @data_storage = invoice_items.find_all do |data|
+    invoice_items.find_all do |data|
       data.updated_at.downcase == match.downcase
     end
   end

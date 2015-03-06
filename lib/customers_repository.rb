@@ -1,22 +1,19 @@
 require './lib/customers'
-require './lib/customers_parser'
 
 class CustomerRepository
 
   attr_accessor :customers,
-                :parent_engine,
-                :data_storage
+                :parent_engine
 
-  def initialize(sales_engine = nil)
+  def initialize(data, sales_engine)
     @parent_engine = sales_engine
     @customers = []
-    @customer_parser = CustomerParser.new
-    @customer_parser.read_customer_data_from_csv_file
+    @data = data
     create_customer_objects
   end
 
   def create_customer_objects
-    @customer_parser.customer_data.each do |data|
+    @data.customer_data.each do |data|
       @customers << Customer.new(self,data)
     end
   end
@@ -30,69 +27,43 @@ class CustomerRepository
   end
 
   def find_by_id(match)
-    customers.find do |data|
-      data.id == match
-    end
+    customers.find {|data| data.id == match}
   end
 
   def find_by_first_name(match)
-    customers.find do |data|
-      data.first_name.downcase == match.downcase
-    end
+    customers.find {|data| data.first_name.downcase == match.downcase}
   end
 
   def find_by_last_name(match)
-    customers.find do |data|
-      data.last_name.downcase == match.downcase
-    end
+    customers.find {|data| data.last_name.downcase == match.downcase}
   end
 
   def find_by_created_at(match)
-    customers.find do |data|
-      data.created_at.downcase == match.downcase
-    end
+    customers.find {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_by_updated_at(match)
-    customers.find do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    customers.find {|data| data.updated_at.downcase == match.downcase}
   end
 
   def find_all_by_id(match)
-    @data_storage = customers.find_all do |data|
-      data.id == match
-    end
+    customers.find_all {|data| data.id == match}
   end
 
   def find_all_by_first_name(match)
-    @data_storage = customers.find_all do |data|
-      data.first_name.downcase == match.downcase
-    end
+    customers.find_all {|data| data.first_name.downcase == match.downcase}
   end
 
   def find_all_by_last_name(match)
-    @data_storage = customers.find_all do |data|
-      data.last_name.downcase == match.downcase
-    end
+    customers.find_all {|data| data.last_name.downcase == match.downcase}
   end
 
   def find_all_by_created_at(match)
-    @data_storage = customers.find_all do |data|
-      data.created_at.downcase == match.downcase
-    end
+    customers.find_all {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_all_by_updated_at(match)
-    @data_storage = customers.find_all do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    customers.find_all {|data| data.updated_at.downcase == match.downcase}
   end
 
-end
-
-
-if __FILE__ == $0
-  customer_repository = CustomerRepository.new
-  puts customer_repository.find_all_by_first_name("abbey")
 end

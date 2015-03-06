@@ -1,22 +1,19 @@
 require './lib/items'
-require './lib/items_parser'
 
 class ItemRepository
 
   attr_accessor :items,
-                :parent_engine,
-                :data_storage
+                :parent_engine
 
-  def initialize(sales_engine = nil)
+  def initialize(data,sales_engine = nil)
     @parent_engine = sales_engine
     @items = []
-    @item_parser = ItemParser.new
-    @item_parser.read_item_data_from_csv_file
+    @data = data
     create_item_objects
   end
 
   def create_item_objects
-    @item_parser.item_data.each do |data|
+    @data.item_data.each do |data|
       @items << Item.new(self,data)
     end
   end
@@ -30,27 +27,19 @@ class ItemRepository
   end
 
   def find_by_id(match)
-    items.find do |data|
-      data.id == match
-    end
+    items.find {|data| data.id == match}
   end
 
   def find_by_name(match)
-    items.find do |data|
-      data.name.downcase == match.downcase
-    end
+    items.find {|data| data.name.downcase == match.downcase}
   end
 
   def find_by_description(match)
-    items.find do |data|
-      data.description.downcase == match.downcase
-    end
+    items.find {|data| data.description.downcase == match.downcase}
   end
 
   def find_by_unit_price(match)
-    items.find do |data|
-      data.unit_price == match
-    end
+    items.find {|data| data.unit_price == match}
   end
 
   def find_by_merchant_id(match)
@@ -72,49 +61,48 @@ class ItemRepository
   end
 
     def find_all_by_id(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.id == match
     end
   end
 
   def find_all_by_name(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.name.downcase == match.downcase
     end
   end
 
   def find_all_by_description(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.description.downcase == match.downcase
     end
   end
 
   def find_all_by_unit_price(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.unit_price == match
     end
   end
 
   def find_all_by_merchant_id(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.merchant_id == match
     end
   end
 
   def find_all_by_created_at(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.created_at.downcase == match.downcase
     end
   end
 
   def find_all_by_updated_at(match)
-    @data_storage = items.find_all do |data|
+    items.find_all do |data|
       data.updated_at.downcase == match.downcase
     end
   end
 
 end
-
 
 if __FILE__ == $0
   item_repository = ItemRepository.new
