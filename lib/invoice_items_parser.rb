@@ -1,7 +1,7 @@
 require 'csv'
 require './lib/invoice_items'
 
-class InvoiceItemsParser
+class InvoiceItemParser
 
   attr_accessor :invoice_items_data
 

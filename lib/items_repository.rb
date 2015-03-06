@@ -5,101 +5,123 @@ class ItemRepository
   attr_accessor :items,
                 :parent_engine
 
-  def initialize(data,sales_engine = nil)
+  def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @items = []
-    @data = data
-    create_item_objects
-  end
-
-  def create_item_objects
-    @data.item_data.each do |data|
-      @items << Item.new(self,data)
+    @items = data.map do |element|
+      (element.kind_of? Item) ? element : (Item.new(self,element))
     end
   end
 
   def all
-    items
+    ItemRepository.new(
+      items,
+      parent_engine
+    ).items
   end
 
   def random
-    items.sample
+    ItemRepository.new(
+      [items.sample],
+      parent_engine
+    ).items
   end
 
   def find_by_id(match)
-    items.find {|data| data.id == match}
+    ItemRepository.new(
+      [items.find {|data| data.id == match}],
+      parent_engine
+    ).items
   end
 
   def find_by_name(match)
-    items.find {|data| data.name.downcase == match.downcase}
+    ItemRepository.new(
+      [items.find {|data| data.name.downcase == match.downcase}],
+      parent_engine
+    ).items
   end
 
   def find_by_description(match)
-    items.find {|data| data.description.downcase == match.downcase}
+    ItemRepository.new(
+      [items.find {|data| data.description.downcase == match.downcase}],
+      parent_engine
+    ).items
   end
 
   def find_by_unit_price(match)
-    items.find {|data| data.unit_price == match}
+    ItemRepository.new(
+      [items.find {|data| data.unit_price == match}],
+      parent_engine
+    ).items
   end
 
   def find_by_merchant_id(match)
-    items.find do |data|
-      data.merchant_id == match
-    end
+    ItemRepository.new(
+      [items.find {|data| data.merchant_id == match}],
+      parent_engine
+    ).items    
   end
 
   def find_by_created_at(match)
-    items.find do |data|
-      data.created_at.downcase == match.downcase
-    end
+    ItemRepository.new(
+      [items.find {|data| data.created_at.downcase == match.downcase}],
+      parent_engine
+    ).items
   end
 
   def find_by_updated_at(match)
-    items.find do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    ItemRepository.new(
+      [items.find {|data| data.updated_at.downcase == match.downcase}],
+      parent_engine
+    ).items
   end
 
-    def find_all_by_id(match)
-    items.find_all do |data|
-      data.id == match
-    end
+  def find_all_by_id(match)
+    ItemRepository.new(
+      items.find_all {|data| data.id == match},
+      parent_engine
+    ).items
   end
 
   def find_all_by_name(match)
-    items.find_all do |data|
-      data.name.downcase == match.downcase
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.name.downcase == match.downcase},
+      parent_engine
+    ).items
   end
 
   def find_all_by_description(match)
-    items.find_all do |data|
-      data.description.downcase == match.downcase
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.description.downcase == match.downcase},
+      parent_engine
+    ).items
   end
 
   def find_all_by_unit_price(match)
-    items.find_all do |data|
-      data.unit_price == match
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.unit_price == match},
+      parent_engine
+    ).items
   end
 
   def find_all_by_merchant_id(match)
-    items.find_all do |data|
-      data.merchant_id == match
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.merchant_id == match},
+      parent_engine
+    ).items
   end
 
   def find_all_by_created_at(match)
-    items.find_all do |data|
-      data.created_at.downcase == match.downcase
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.created_at.downcase == match.downcase},
+      parent_engine
+    ).items
   end
 
   def find_all_by_updated_at(match)
-    items.find_all do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    ItemRepository.new(
+      items.find_all {|data| data.updated_at.downcase == match.downcase},
+      parent_engine
+    ).items
   end
 
 end

@@ -1,113 +1,127 @@
 require './lib/invoice_items'
 
-class InvoiceItemsRepository
+class InvoiceItemRepository
 
   attr_accessor :invoice_items,
                 :parent_engine
 
   def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @invoice_items = []
-    @data = data
-    create_invoice_items_objects
-  end
-
-  def create_invoice_items_objects
-    @data.invoice_items_data.each do |data|
-      @invoice_items << InvoiceItem.new(self,data)
+    @invoice_items = data.map do |element|
+      (element.kind_of? InvoiceItem) ? element : (InvoiceItem.new(self,element))
     end
   end
 
   def all
-    invoice_items
+    InvoiceItemRepository.new(
+      invoice_items,
+      parent_engine
+    ).invoice_items
   end
 
   def random
-    invoice_items.sample
+    InvoiceItemRepository.new(
+      [invoice_items.sample],
+      parent_engine
+    ).invoice_items
   end
 
   def find_by_id(match)
-    invoice_items.find do |data|
-      data.id == match
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.id == match}],
+      parent_engine
+    ).invoice_items
   end
 
-  def find_by_item_id(match)  ####
-    invoice_items.find do |data|
-      data.item_id == match
-    end
+  def find_by_item_id(match)  
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.item_id == match}],
+      parent_engine
+    ).invoice_items
   end
 
   def find_by_invoice_id(match)
-    invoice_items.find do |data|
-      data.invoice_id == match
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.invoice_id == match}],
+      parent_engine
+    ).invoice_items
   end
 
   def find_by_quantity(match)
-    invoice_items.find do |data|
-      data.quantity == match 
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.quantity == match}], 
+      parent_engine
+    ).invoice_items
   end
 
   def find_by_unit_price(match)
-    invoice_items.find do |data|
-      data.unit_price == match
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.unit_price == match}],
+      parent_engine  
+    ).invoice_items
   end
 
   def find_by_created_at(match)
-    invoice_items.find do |data|
-      data.created_at.downcase == match.downcase
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.created_at.downcase == match.downcase}],
+      parent_engine
+    ).invoice_items
   end
 
   def find_by_updated_at(match)
-    invoice_items.find do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    InvoiceItemRepository.new(
+      [invoice_items.find {|data| data.updated_at.downcase == match.downcase}],
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_id(match)
-    invoice_items.find_all do |data|
-      data.id == match
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.id == match},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_item_id(match)
-    invoice_items.find_all do |data|
-      data.item_id == match
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.item_id == match},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_invoice_id(match)
-    invoice_items.find_all do |data|
-      data.invoice_id == match
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.invoice_id == match},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_quantity(match)
-    invoice_items.find_all do |data|
-      data.quantity == match
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.quantity == match},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_unit_price(match)  
-    invoice_items.find_all do |data|
-      data.unit_price == match
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.unit_price == match},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_created_at(match)
-    invoice_items.find_all do |data|
-      data.created_at.downcase == match.downcase
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.created_at.downcase == match.downcase},
+      parent_engine
+    ).invoice_items
   end
 
   def find_all_by_updated_at(match)
-    invoice_items.find_all do |data|
-      data.updated_at.downcase == match.downcase
-    end
+    InvoiceItemRepository.new(
+      invoice_items.find_all {|data| data.updated_at.downcase == match.downcase},
+      parent_engine
+    ).invoice_items
   end
 
 end

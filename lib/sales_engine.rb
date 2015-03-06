@@ -30,22 +30,22 @@ class SalesEngine
 
   def initialize_items_repository
     data = ItemParser.new("./data/items.csv")
-    @items_repository = ItemRepository.new(data, self)
+    @items_repository = ItemRepository.new(data.item_data, self)
   end
 
   def initialize_invoices_repository
     data = InvoiceParser.new("./data/invoices.csv")
-    @invoices_repository = InvoiceRepository.new(data, self)
+    @invoices_repository = InvoiceRepository.new(data.invoice_data, self)
   end
 
   def initialize_invoice_items_repository
-    data = InvoiceItemsParser.new("./data/invoice_items.csv")
-    @invoice_items_repository = InvoiceItemsRepository.new(data, self)
+    data = InvoiceItemParser.new("./data/invoice_items.csv")
+    @invoice_items_repository = InvoiceItemRepository.new(data.invoice_items_data, self)
   end
 
   def initialize_transactions_repository
-    data = TransactionsParser.new("./data/transactions.csv")
-    @transactions_repository = TransactionRepository.new(data, self)
+    data = TransactionParser.new("./data/transactions.csv")
+    @transactions_repository = TransactionRepository.new(data.transaction_data, self)
   end
 
 end
@@ -53,5 +53,5 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new
   engine.startup
-  puts engine.merchants_repository.find_by_id(20)
+  puts engine.transactions_repository.all
 end

@@ -1,13 +1,13 @@
 require 'csv'
 require './lib/transactions'
 
-class TransactionsParser
+class TransactionParser
 
-  attr_accessor :transactions_data
+  attr_accessor :transaction_data
 
   def initialize(file_path)
-    @transactions_data = CSV.open(file_path,
-                                  headers: true,
-                                  header_converters: :symbol)
+    @transaction_data = CSV.open(file_path,
+                                 headers: true,
+                                 header_converters: :symbol)
   end
 end
