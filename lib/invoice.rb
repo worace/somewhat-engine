@@ -36,7 +36,7 @@ class Invoice
   end
 
   def customer
-    repository.parent_engine.customer_repository.find_by_id(customer_id).customer[0]
+    repository.parent_engine.customer_repository.find_by_id(customer_id)
   end
 
   def merchant
