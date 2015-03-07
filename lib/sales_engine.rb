@@ -1,5 +1,5 @@
-# require './lib/sales_engine_requires'
-require_relative './sales_engine_requires'
+require './lib/sales_engine_requires'
+# require_relative './sales_engine_requires'
 
 class SalesEngine
 
@@ -59,6 +59,5 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
-  #puts engine.invoice_repository.find_by_id(1).invoices[0]
 end
 

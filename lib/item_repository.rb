@@ -1,5 +1,5 @@
-# require './lib/item'
-require_relative './item'
+require './lib/item'
+# require_relative './item'
 
 class ItemRepository
 
