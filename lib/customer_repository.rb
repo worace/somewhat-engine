@@ -1,5 +1,5 @@
-require './lib/customer'
-#require_relative './customer'
+# require './lib/customer'
+require_relative './customer'
 
 class CustomerRepository
 
@@ -95,6 +95,10 @@ class CustomerRepository
       customer.find_all {|data| data.updated_at.downcase == match.downcase},
       parent_engine
     ).customer
+  end
+
+  def inspect
+    "#<#{self.class} #{merchants.size} rows>"
   end
 
 end

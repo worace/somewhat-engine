@@ -1,5 +1,5 @@
-require './lib/merchant'
-#require_relative './merchant'
+# require './lib/merchant'
+require_relative './merchant'
 
 class MerchantRepository
 
@@ -81,6 +81,10 @@ class MerchantRepository
       merchant.find_all {|data| data.updated_at.downcase == match.downcase},
       parent_engine
     )
+  end
+
+  def inspect
+    "#<#{self.class} #{merchants.size} rows>"
   end
 
 end

@@ -1,6 +1,6 @@
 require 'csv'
-require './lib/merchant'
-#require_relative './merchant'
+# require './lib/merchant'
+require_relative './merchant'
 
 class MerchantParser
 

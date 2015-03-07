@@ -1,5 +1,5 @@
-require './lib/invoice'
-#require_relative './invoice'
+# require './lib/invoice'
+require_relative './invoice'
 
 class InvoiceRepository
 
@@ -109,6 +109,10 @@ class InvoiceRepository
       invoice.find_all {|data| data.updated_at.downcase == match.downcase},
       parent_engine
     )
+  end
+
+  def inspect
+    "#<#{self.class} #{merchants.size} rows>"
   end
 
 end
