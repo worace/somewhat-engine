@@ -1,125 +1,126 @@
-require './lib/transactions'
+require './lib/transaction'
+#require_relative './transaction'
 
 class TransactionRepository
 
-  attr_accessor :transactions,
+  attr_accessor :transaction,
                 :parent_engine
 
   def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @transactions = data.map do |element|
+    @transaction = data.map do |element|
       (element.kind_of? Transaction) ? element : (Transaction.new(self,element))
     end
   end
 
   def all
     TransactionRepository.new(
-      transactions,
+      transaction,
       parent_engine
     )
   end
 
   def random
     TransactionRepository.new(
-      [transactions.sample],
+      [transaction.sample],
       parent_engine
     )
   end
 
   def find_by_id(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.id == match}],
+      [transaction.find {|data| data.id == match}],
       parent_engine
     )
   end
 
   def find_by_invoice_id(match)  
     TransactionRepository.new(
-      [transactions.find {|data| data.invoice_id == match}],
+      [transaction.find {|data| data.invoice_id == match}],
       parent_engine
     )
   end
 
   def find_by_credit_card_number(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.credit_card_number == match}],
+      [transaction.find {|data| data.credit_card_number == match}],
       parent_engine
     )
   end
 
   def find_by_credit_card_expiration_date(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.credit_card_expiration_date == match}],
+      [transaction.find {|data| data.credit_card_expiration_date == match}],
       parent_engine
     )
   end
 
   def find_by_result(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.result == match}],
+      [transaction.find {|data| data.result == match}],
       parent_engine
     )
   end
 
   def find_by_created_at(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.created_at.downcase == match.downcase}],
+      [transaction.find {|data| data.created_at.downcase == match.downcase}],
       parent_engine
     )
   end
 
   def find_by_updated_at(match)
     TransactionRepository.new(
-      [transactions.find {|data| data.updated_at.downcase == match.downcase}],
+      [transaction.find {|data| data.updated_at.downcase == match.downcase}],
       parent_engine
     )
   end
 
    def find_all_by_id(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.id == match},
+      transaction.find_all {|data| data.id == match},
       parent_engine
     )
   end
 
   def find_all_by_invoice_id(match)  
     TransactionRepository.new(
-      transactions.find_all {|data| data.invoice_id == match},
+      transaction.find_all {|data| data.invoice_id == match},
       parent_engine
     )
   end
 
   def find_all_by_credit_card_number(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.credit_card_number == match},
+      transaction.find_all {|data| data.credit_card_number == match},
       parent_engine
     )
   end
 
   def find_all_by_credit_card_expiration_date(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.credit_card_expiration_date == match},
+      transaction.find_all {|data| data.credit_card_expiration_date == match},
       parent_engine
     )
   end
 
   def find_all_by_result(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.result == match},
+      transaction.find_all {|data| data.result == match},
       parent_engine
     )
   end
 
   def find_all_by_created_at(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.created_at.downcase == match.downcase},
+      transaction.find_all {|data| data.created_at.downcase == match.downcase},
       parent_engine
     )
   end
 
   def find_all_by_updated_at(match)
     TransactionRepository.new(
-      transactions.find_all {|data| data.updated_at.downcase == match.downcase},
+      transaction.find_all {|data| data.updated_at.downcase == match.downcase},
       parent_engine
     )
   end

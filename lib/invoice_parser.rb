@@ -1,5 +1,6 @@
 require 'csv'
-require './lib/invoices'
+require './lib/invoice'
+#require_relative './invoice'
 
 class InvoiceParser
 

@@ -1,5 +1,6 @@
 require 'csv'
-require './lib/items'
+require './lib/item'
+#require_relative './item'
 
 class ItemParser
 

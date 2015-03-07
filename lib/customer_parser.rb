@@ -1,5 +1,6 @@
 require 'csv'
-require './lib/customers'
+#require './lib/customers'
+require_relative './customer'
 
 class CustomerParser
 

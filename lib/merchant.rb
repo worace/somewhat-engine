@@ -1,23 +1,25 @@
-class Customer
+class Merchant
 
   attr_accessor :repository,
                 :id,
-                :first_name,
-                :last_name,
+                :name,
                 :created_at,
                 :updated_at
 
   def initialize(repository, data)
     @repository = repository
     @id = data[:id].to_i
-    @first_name = data[:first_name]
-    @last_name  = data[:last_name]
+    @name = data[:name]
     @created_at = data[:created_at]
     @updated_at = data[:updated_at]
   end
 
-  def invoice
-    repository.parent_engine.invoices_repository.find_by_customer_id(id).invoices[0]
+  def items
+    repository.parent_engine.item_repository.find_all_by_merchant_id(id).item
+  end
+
+  def invoices
+    repository.parent_engine.invoice_repository.find_all_by_merchant_id(id).invoice
   end
 
 end
