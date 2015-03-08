@@ -19,16 +19,16 @@ class Invoice
   end
 
   def transactions 
-    repository.parent_engine.transaction_repository.find_all_by_invoice_id(id).transaction
+    repository.parent_engine.transaction_repository.find_all_by_invoice_id(id)
   end
 
   def invoice_items
-    get_invoice_items_for_self.invoice_item
+    get_invoice_items_for_self
   end
 
   def items
-    items = get_invoice_items_for_self.invoice_item.map {|item| item.item_id}
-    items.uniq
+      items = get_invoice_items_for_self.map {|item| repository.parent_engine.item_repository.find_by_id(item.item_id)}
+      items.uniq
   end
 
   def get_invoice_items_for_self
@@ -40,7 +40,7 @@ class Invoice
   end
 
   def merchant
-    repository.parent_engine.merchant_repository.find_by_id(merchant_id).merchant[0]
+    repository.parent_engine.merchant_repository.find_by_id(merchant_id)
   end
 
 end

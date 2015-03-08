@@ -21,11 +21,11 @@ class InvoiceItem
   end
 
   def invoice
-    repository.parent_engine.invoice_repository.find_by_id(invoice_id).invoice[0]
+    repository.parent_engine.invoice_repository.find_by_id(invoice_id)
   end
 
   def item
-    repository.parent_engine.item_repository.find_by_id(item_id).item[0]
+    repository.parent_engine.item_repository.find_by_id(item_id)
   end
 
 end

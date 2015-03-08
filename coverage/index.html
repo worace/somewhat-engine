@@ -14,27 +14,27 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-06T22:56:20-07:00">2015-03-06T22:56:20-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-06T23:12:58-07:00">2015-03-06T23:12:58-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">69.1%</span></span>
+    (<span class="covered_percent"><span class="red">77.19%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         9104.14
+         10632.23
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>20</b> files in total.
-    <b>466</b> relevant lines. 
-    <span class="green"><b>322</b> lines covered</span> and
-    <span class="red"><b>144</b> lines missed </span>
+    <b>399</b> relevant lines. 
+    <span class="green"><b>308</b> lines covered</span> and
+    <span class="red"><b>91</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -112,12 +112,12 @@
       
       <tr>
         <td class="strong"><a href="#501c87e1dd0d33caa75b232939b9ae1f2ac70487" class="src_link" title="lib/invoice_item_repository.rb">lib/invoice_item_repository.rb</a></td>
-        <td class="red strong">49.15 %</td>
-        <td>138</td>
-        <td>59</td>
-        <td>29</td>
-        <td>30</td>
-        <td>6986.4</td>
+        <td class="red strong">59.09 %</td>
+        <td>88</td>
+        <td>44</td>
+        <td>26</td>
+        <td>18</td>
+        <td>9366.1</td>
       </tr>
       
       <tr>
@@ -132,12 +132,12 @@
       
       <tr>
         <td class="strong"><a href="#95649961c2b40b85125cce82febdc47e22329f96" class="src_link" title="lib/invoice_repository.rb">lib/invoice_repository.rb</a></td>
-        <td class="red strong">55.77 %</td>
-        <td>124</td>
-        <td>52</td>
-        <td>29</td>
-        <td>23</td>
-        <td>1400.6</td>
+        <td class="red strong">64.1 %</td>
+        <td>80</td>
+        <td>39</td>
+        <td>25</td>
+        <td>14</td>
+        <td>1864.1</td>
       </tr>
       
       <tr>
@@ -162,12 +162,12 @@
       
       <tr>
         <td class="strong"><a href="#fadc1e60cef22eeffda5d73f93e3bb4fd4fd1c30" class="src_link" title="lib/item_repository.rb">lib/item_repository.rb</a></td>
-        <td class="red strong">50.0 %</td>
-        <td>137</td>
-        <td>58</td>
-        <td>29</td>
-        <td>29</td>
-        <td>653.0</td>
+        <td class="red strong">60.47 %</td>
+        <td>87</td>
+        <td>43</td>
+        <td>26</td>
+        <td>17</td>
+        <td>879.9</td>
       </tr>
       
       <tr>
@@ -192,12 +192,12 @@
       
       <tr>
         <td class="strong"><a href="#c931c71c2af78d6053f06f7b3f308bc0e42c5a25" class="src_link" title="lib/merchant_repository.rb">lib/merchant_repository.rb</a></td>
-        <td class="red strong">52.5 %</td>
-        <td>95</td>
-        <td>40</td>
-        <td>21</td>
+        <td class="red strong">61.29 %</td>
+        <td>64</td>
+        <td>31</td>
         <td>19</td>
-        <td>34.4</td>
+        <td>12</td>
+        <td>44.2</td>
       </tr>
       
       <tr>
@@ -242,12 +242,12 @@
       
       <tr>
         <td class="strong"><a href="#e4c1d3383b8c24fbf6b731ec3654e97525106405" class="src_link" title="lib/transaction_repository.rb">lib/transaction_repository.rb</a></td>
-        <td class="red strong">47.27 %</td>
-        <td>136</td>
-        <td>55</td>
-        <td>26</td>
-        <td>29</td>
-        <td>1526.9</td>
+        <td class="red strong">60.0 %</td>
+        <td>86</td>
+        <td>40</td>
+        <td>24</td>
+        <td>16</td>
+        <td>2099.4</td>
       </tr>
       
     </tbody>
@@ -397,7 +397,7 @@
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_customer_id(id).invoice[0]</code>
+          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_customer_id(id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -1117,7 +1117,7 @@
         <li class="covered" data-hits="2" data-linenumber="22">
           <span class="hits">2</span>
           
-          <code class="ruby">    repository.parent_engine.transaction_repository.find_all_by_invoice_id(id).transaction</code>
+          <code class="ruby">    repository.parent_engine.transaction_repository.find_all_by_invoice_id(id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -1141,7 +1141,7 @@
         <li class="covered" data-hits="2" data-linenumber="26">
           <span class="hits">2</span>
           
-          <code class="ruby">    get_invoice_items_for_self.invoice_item</code>
+          <code class="ruby">    get_invoice_items_for_self</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
@@ -1165,7 +1165,7 @@
         <li class="covered" data-hits="18" data-linenumber="30">
           <span class="hits">18</span>
           
-          <code class="ruby">    items = get_invoice_items_for_self.invoice_item.map {|item| item.item_id}</code>
+          <code class="ruby">    items = get_invoice_items_for_self.map {|item| item.item_id}</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="31">
@@ -1243,7 +1243,7 @@
         <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.merchant_repository.find_by_id(merchant_id).merchant[0]</code>
+          <code class="ruby">    repository.parent_engine.merchant_repository.find_by_id(merchant_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
@@ -1423,7 +1423,7 @@
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_id(invoice_id).invoice[0]</code>
+          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_id(invoice_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
@@ -1447,7 +1447,7 @@
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.item_repository.find_by_id(item_id).item[0]</code>
+          <code class="ruby">    repository.parent_engine.item_repository.find_by_id(item_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
@@ -1577,11 +1577,11 @@
         <div class="source_table" id="501c87e1dd0d33caa75b232939b9ae1f2ac70487">
   <div class="header">
     <h3>lib/invoice_item_repository.rb</h3>
-    <h4><span class="red">49.15 %</span> covered</h4>
+    <h4><span class="red">59.09 %</span> covered</h4>
     <div>
-      <b>59</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>30</b> lines missed.</span>
+      <b>44</b> relevant lines. 
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>18</b> lines missed.</span>
     </div>
   </div>
   
@@ -1642,112 +1642,112 @@
           <code class="ruby">  def initialize(data, sales_engine)</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="10">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    @parent_engine = sales_engine</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="11">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="281944" data-linenumber="11">
+          <span class="hits">281944</span>
           
-          <code class="ruby">    @invoice_item = data.map do |element|</code>
+          <code class="ruby">    @invoice_item = data.map {|element| (InvoiceItem.new(self,element))}</code>
         </li>
       
-        <li class="covered" data-hits="282011" data-linenumber="12">
-          <span class="hits">282011</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      (element.kind_of? InvoiceItem) ? element : (InvoiceItem.new(self,element))</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      invoice_item,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def random</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.sample</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">      invoice_item.find {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      [invoice_item.sample],</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby">  def find_by_item_id(match)  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      invoice_item.find {|data| data.item_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -1765,157 +1765,157 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_id(match)</code>
+          <code class="ruby">  def find_by_invoice_id(match)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find {|data| data.invoice_id == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">      [invoice_item.find {|data| data.id == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_item_id(match)  </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
-          
-          <code class="ruby">      [invoice_item.find {|data| data.item_id == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_invoice_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">      [invoice_item.find {|data| data.invoice_id == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_quantity(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find {|data| data.quantity == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      [invoice_item.find {|data| data.quantity == match}], </code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_unit_price(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      invoice_item.find {|data| data.unit_price == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_created_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">      invoice_item.find {|data| data.created_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_updated_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">      invoice_item.find {|data| data.updated_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      invoice_item.find_all {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_item_id(match)</code>
+        </li>
+      
+        <li class="covered" data-hits="43376" data-linenumber="55">
+          <span class="hits">43376</span>
+          
+          <code class="ruby">      invoice_item.find_all {|data| data.item_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -1933,484 +1933,184 @@
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_unit_price(match)</code>
+          <code class="ruby">  def find_all_by_invoice_id(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
+        <li class="covered" data-hits="86752" data-linenumber="59">
+          <span class="hits">86752</span>
           
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find_all {|data| data.invoice_id == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">      [invoice_item.find {|data| data.unit_price == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">      parent_engine  </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_created_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">      [invoice_item.find {|data| data.created_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_updated_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">      [invoice_item.find {|data| data.updated_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_item_id(match)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="87">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="covered" data-hits="43374" data-linenumber="88">
-          <span class="hits">43374</span>
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.item_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_invoice_id(match)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="94">
-          <span class="hits">4</span>
-          
-          <code class="ruby">    InvoiceItemRepository.new(</code>
-        </li>
-      
-        <li class="covered" data-hits="86748" data-linenumber="95">
-          <span class="hits">86748</span>
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.invoice_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_quantity(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find_all {|data| data.quantity == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
-          
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.quantity == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="103">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_unit_price(match)  </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="108">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find_all {|data| data.unit_price == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
-          
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.unit_price == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_created_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find_all {|data| data.created_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="116">
-          
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.created_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_updated_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="75">
           
           
-          <code class="ruby">    InvoiceItemRepository.new(</code>
+          <code class="ruby">      invoice_item.find_all {|data| data.updated_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="123">
-          
-          
-          <code class="ruby">      invoice_item.find_all {|data| data.updated_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="124">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="125">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
           <code class="ruby">  def inspect</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="129">
+        <li class="missed" data-hits="0" data-linenumber="79">
           
           
           <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="130">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="134">
+        <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
           <code class="ruby">if __FILE__ == $0</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="135">
+        <li class="missed" data-hits="0" data-linenumber="85">
           
           
           <code class="ruby">  invoice_item_repository = InvoiceitemRepository.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="136">
+        <li class="missed" data-hits="0" data-linenumber="86">
           
           
           <code class="ruby">  puts invoice_item_repository.find_by_id(21687)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="137">
+        <li class="missed" data-hits="0" data-linenumber="87">
           
           
           <code class="ruby">  puts invoice_item_repository.find_all_by_unit_price(13635)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">end</code>
@@ -2525,11 +2225,11 @@
         <div class="source_table" id="95649961c2b40b85125cce82febdc47e22329f96">
   <div class="header">
     <h3>lib/invoice_repository.rb</h3>
-    <h4><span class="red">55.77 %</span> covered</h4>
+    <h4><span class="red">64.1 %</span> covered</h4>
     <div>
-      <b>52</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>23</b> lines missed.</span>
+      <b>39</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
     </div>
   </div>
   
@@ -2590,112 +2290,112 @@
           <code class="ruby">  def initialize(data, sales_engine)</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="10">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    @parent_engine = sales_engine</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="11">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="62972" data-linenumber="11">
+          <span class="hits">62972</span>
           
-          <code class="ruby">    @invoice = data.map do |element|</code>
+          <code class="ruby">    @invoice = data.map {|element| (Invoice.new(self,element))}</code>
         </li>
       
-        <li class="covered" data-hits="63080" data-linenumber="12">
-          <span class="hits">63080</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      (element.kind_of? Invoice) ? element : (Invoice.new(self,element))</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      invoice,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def random</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice.sample</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_id(match)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="23">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      invoice.find {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      [invoice.sample],</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby">  def find_by_customer_id(match)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    )</code>
+          <code class="ruby">      invoice.find {|data| data.customer_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -2713,157 +2413,157 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_id(match)</code>
+          <code class="ruby">  def find_by_merchant_id(match)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="31">
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          
+          <code class="ruby">      invoice.find {|data| data.merchant_id == match}</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="32">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="32">
           
-          <code class="ruby">      [invoice.find {|data| data.id == match}],</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_customer_id(match)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      [invoice.find {|data| data.customer_id == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_merchant_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">      [invoice.find {|data| data.merchant_id == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_status(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice.find {|data| data.status.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      [invoice.find {|data| data.status.downcase == match.downcase}],</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_created_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      invoice.find {|data| data.created_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_updated_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">      invoice.find {|data| data.updated_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">      invoice.find_all {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_customer_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      invoice.find_all {|data| data.customer_id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_merchant_id(match)</code>
+        </li>
+      
+        <li class="covered" data-hits="9688" data-linenumber="55">
+          <span class="hits">9688</span>
+          
+          <code class="ruby">      invoice.find_all {|data| data.merchant_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -2881,400 +2581,136 @@
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_created_at(match)</code>
+          <code class="ruby">  def find_all_by_status(match)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="59">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice.find_all {|data| data.status.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">      [invoice.find {|data| data.created_at.downcase == match.downcase}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_updated_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">      [invoice.find {|data| data.updated_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">      invoice.find_all {|data| data.id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_customer_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">      invoice.find_all {|data| data.customer_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_merchant_id(match)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="87">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="covered" data-hits="9686" data-linenumber="88">
-          <span class="hits">9686</span>
-          
-          <code class="ruby">      invoice.find_all {|data| data.merchant_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_status(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">    InvoiceRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
-          
-          <code class="ruby">      invoice.find_all {|data| data.status.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_created_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice.find_all {|data| data.created_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
-          
-          
-          <code class="ruby">      invoice.find_all {|data| data.created_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="103">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_updated_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="108">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">    InvoiceRepository.new(</code>
+          <code class="ruby">      invoice.find_all {|data| data.updated_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
-          
-          
-          <code class="ruby">      invoice.find_all {|data| data.updated_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
           <code class="ruby">  def inspect</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
           <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="118">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
           <code class="ruby">if __FILE__ == $0</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="78">
           
           
           <code class="ruby">  invoice_repository = InvoiceRepository.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="123">
+        <li class="missed" data-hits="0" data-linenumber="79">
           
           
           <code class="ruby">  puts invoice_repository</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="124">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">end</code>
@@ -3439,7 +2875,7 @@
         <li class="covered" data-hits="2" data-linenumber="24">
           <span class="hits">2</span>
           
-          <code class="ruby">    repository.parent_engine.invoice_item_repository.find_all_by_item_id(id).invoice_item</code>
+          <code class="ruby">    repository.parent_engine.invoice_item_repository.find_all_by_item_id(id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
@@ -3463,7 +2899,7 @@
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.merchant_repository.find_by_id(merchant_id).merchant[0]</code>
+          <code class="ruby">    repository.parent_engine.merchant_repository.find_by_id(merchant_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
@@ -3629,11 +3065,11 @@
         <div class="source_table" id="fadc1e60cef22eeffda5d73f93e3bb4fd4fd1c30">
   <div class="header">
     <h3>lib/item_repository.rb</h3>
-    <h4><span class="red">50.0 %</span> covered</h4>
+    <h4><span class="red">60.47 %</span> covered</h4>
     <div>
-      <b>58</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>29</b> lines missed.</span>
+      <b>43</b> relevant lines. 
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -3694,112 +3130,112 @@
           <code class="ruby">  def initialize(data, sales_engine)</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="10">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    @parent_engine = sales_engine</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="11">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="32292" data-linenumber="11">
+          <span class="hits">32292</span>
           
-          <code class="ruby">    @item = data.map do |element|</code>
+          <code class="ruby">    @item = data.map {|element| (Item.new(self,element))}</code>
         </li>
       
-        <li class="covered" data-hits="32310" data-linenumber="12">
-          <span class="hits">32310</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      (element.kind_of? Item) ? element : (Item.new(self,element))</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      item,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def random</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.sample</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_id(match)</code>
+        </li>
+      
+        <li class="covered" data-hits="540" data-linenumber="23">
+          <span class="hits">540</span>
+          
+          <code class="ruby">      item.find {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      [item.sample],</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby">  def find_by_name(match)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      item.find {|data| data.name.downcase == match.downcase}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -3817,157 +3253,157 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_id(match)</code>
+          <code class="ruby">  def find_by_description(match)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="31">
           
-          <code class="ruby">    ItemRepository.new(</code>
+          
+          <code class="ruby">      item.find {|data| data.description.downcase == match.downcase}</code>
         </li>
       
-        <li class="covered" data-hits="539" data-linenumber="32">
-          <span class="hits">539</span>
+        <li class="never" data-hits="" data-linenumber="32">
           
-          <code class="ruby">      [item.find {|data| data.id == match}],</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_name(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
-          
-          <code class="ruby">      [item.find {|data| data.name.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_description(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">      [item.find {|data| data.description.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_unit_price(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find {|data| data.unit_price == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      [item.find {|data| data.unit_price == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_merchant_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      item.find {|data| data.merchant_id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_created_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">      item.find {|data| data.created_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_updated_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">      item.find {|data| data.updated_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      item.find_all {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_name(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">      item.find_all {|data| data.name.downcase == match.downcase}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -3985,478 +3421,178 @@
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_merchant_id(match)</code>
+          <code class="ruby">  def find_all_by_description(match)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="59">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find_all {|data| data.description.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">      [item.find {|data| data.merchant_id == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    )    </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_created_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">      [item.find {|data| data.created_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_updated_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">      [item.find {|data| data.updated_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_name(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="87">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="88">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.name.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_description(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">    ItemRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.description.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_unit_price(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find_all {|data| data.unit_price == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.unit_price == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="103">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_merchant_id(match)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="108">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4968" data-linenumber="67">
+          <span class="hits">4968</span>
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find_all {|data| data.merchant_id == match}</code>
         </li>
       
-        <li class="covered" data-hits="4966" data-linenumber="109">
-          <span class="hits">4966</span>
-          
-          <code class="ruby">      item.find_all {|data| data.merchant_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_created_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find_all {|data| data.created_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="116">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.created_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_updated_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="75">
           
           
-          <code class="ruby">    ItemRepository.new(</code>
+          <code class="ruby">      item.find_all {|data| data.updated_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="123">
-          
-          
-          <code class="ruby">      item.find_all {|data| data.updated_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="124">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="125">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
           <code class="ruby">  def inspect</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="129">
+        <li class="missed" data-hits="0" data-linenumber="79">
           
           
           <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="130">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="134">
+        <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
           <code class="ruby">if __FILE__ == $0</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="135">
+        <li class="missed" data-hits="0" data-linenumber="85">
           
           
           <code class="ruby">  item_repository = ItemRepository.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="136">
+        <li class="missed" data-hits="0" data-linenumber="86">
           
           
           <code class="ruby">  puts item_repository.find_all_by_updated_at(&quot;2012-03-27 14:53:59 UTC&quot;).size</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="137">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">end</code>
@@ -4585,7 +3721,7 @@
         <li class="covered" data-hits="2" data-linenumber="18">
           <span class="hits">2</span>
           
-          <code class="ruby">    repository.parent_engine.item_repository.find_all_by_merchant_id(id).item</code>
+          <code class="ruby">    repository.parent_engine.item_repository.find_all_by_merchant_id(id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -4609,7 +3745,7 @@
         <li class="covered" data-hits="2" data-linenumber="22">
           <span class="hits">2</span>
           
-          <code class="ruby">    repository.parent_engine.invoice_repository.find_all_by_merchant_id(id).invoice</code>
+          <code class="ruby">    repository.parent_engine.invoice_repository.find_all_by_merchant_id(id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -4769,11 +3905,11 @@
         <div class="source_table" id="c931c71c2af78d6053f06f7b3f308bc0e42c5a25">
   <div class="header">
     <h3>lib/merchant_repository.rb</h3>
-    <h4><span class="red">52.5 %</span> covered</h4>
+    <h4><span class="red">61.29 %</span> covered</h4>
     <div>
-      <b>40</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
-      <span class="red"><b>19</b> lines missed.</span>
+      <b>31</b> relevant lines. 
+      <span class="green"><b>19</b> lines covered</span> and
+      <span class="red"><b>12</b> lines missed.</span>
     </div>
   </div>
   
@@ -4834,112 +3970,112 @@
           <code class="ruby">  def initialize(data, sales_engine)</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="10">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    @parent_engine = sales_engine</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="11">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="1313" data-linenumber="11">
+          <span class="hits">1313</span>
           
-          <code class="ruby">    @merchant = data.map do |element|</code>
+          <code class="ruby">    @merchant = data.map {|element| (Merchant.new(self,element))}</code>
         </li>
       
-        <li class="covered" data-hits="1302" data-linenumber="12">
-          <span class="hits">1302</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      (element.kind_of? Merchant) ? element : (Merchant.new(self,element))</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    MerchantRepository.new(</code>
+          <code class="ruby">      merchant</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      merchant,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def random</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    MerchantRepository.new(</code>
+          <code class="ruby">      merchant.sample</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_id(match)</code>
+        </li>
+      
+        <li class="covered" data-hits="29" data-linenumber="23">
+          <span class="hits">29</span>
+          
+          <code class="ruby">      merchant.find {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      [merchant.sample],</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby">  def find_by_name(match)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      merchant.find {|data| data.name.downcase == match.downcase}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -4957,157 +4093,157 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_id(match)</code>
+          <code class="ruby">  def find_by_created_at(match)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="31">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="31">
           
-          <code class="ruby">    MerchantRepository.new(</code>
+          
+          <code class="ruby">      merchant.find {|data| data.created_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="covered" data-hits="27" data-linenumber="32">
-          <span class="hits">27</span>
+        <li class="never" data-hits="" data-linenumber="32">
           
-          <code class="ruby">      [merchant.find {|data| data.id == match}],</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_name(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">    MerchantRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
-          
-          <code class="ruby">      [merchant.find {|data| data.name.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_created_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    MerchantRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">      [merchant.find {|data| data.created_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_updated_at(match)    </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    MerchantRepository.new(</code>
+          <code class="ruby">      merchant.find {|data| data.updated_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      [merchant.find {|data| data.updated_at.downcase == match.downcase}],</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      merchant.find_all {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_name(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">      merchant.find_all {|data| data.name.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_created_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">      merchant.find_all {|data| data.created_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_updated_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      merchant.find_all {|data| data.updated_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def inspect</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -5122,232 +4258,46 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_all_by_id(match)</code>
+          <code class="ruby">if __FILE__ == $0</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
+        <li class="missed" data-hits="0" data-linenumber="61">
           
           
-          <code class="ruby">    MerchantRepository.new(</code>
+          <code class="ruby">  merchant_repository = MerchantRepository.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="missed" data-hits="0" data-linenumber="62">
           
           
-          <code class="ruby">      merchant.find_all {|data| data.id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    )</code>
+          <code class="ruby">  puts merchant_repository.find_all_by_name(&quot;Williamson Group&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_name(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">    MerchantRepository.new( </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">      merchant.find_all {|data| data.name.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_created_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">    MerchantRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">      merchant.find_all {|data| data.created_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_updated_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
-          
-          <code class="ruby">    MerchantRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">      merchant.find_all {|data| data.updated_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def inspect</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="87">
-          
-          
-          <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="88">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
-          
-          <code class="ruby">if __FILE__ == $0</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="93">
-          
-          
-          <code class="ruby">  merchant_repository = MerchantRepository.new</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">  puts merchant_repository.find_all_by_name(&quot;Williamson Group&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="95">
-          
-          
-          <code class="ruby">end</code>
         </li>
       
     </ol>
@@ -6133,7 +5083,7 @@
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_id(invoice_id).invoice[0]</code>
+          <code class="ruby">    repository.parent_engine.invoice_repository.find_by_id(invoice_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
@@ -6263,11 +5213,11 @@
         <div class="source_table" id="e4c1d3383b8c24fbf6b731ec3654e97525106405">
   <div class="header">
     <h3>lib/transaction_repository.rb</h3>
-    <h4><span class="red">47.27 %</span> covered</h4>
+    <h4><span class="red">60.0 %</span> covered</h4>
     <div>
-      <b>55</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
-      <span class="red"><b>29</b> lines missed.</span>
+      <b>40</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
+      <span class="red"><b>16</b> lines missed.</span>
     </div>
   </div>
   
@@ -6328,112 +5278,112 @@
           <code class="ruby">  def initialize(data, sales_engine)</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="10">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="13" data-linenumber="10">
+          <span class="hits">13</span>
           
           <code class="ruby">    @parent_engine = sales_engine</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="11">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="72748" data-linenumber="11">
+          <span class="hits">72748</span>
           
-          <code class="ruby">    @transaction = data.map do |element|</code>
+          <code class="ruby">    @transaction = data.map {|element| (Transaction.new(self,element))}</code>
         </li>
       
-        <li class="covered" data-hits="72737" data-linenumber="12">
-          <span class="hits">72737</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      (element.kind_of? Transaction) ? element : (Transaction.new(self,element))</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  def all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      transaction,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def random</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.sample</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">      transaction.find {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      [transaction.sample],</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby">  def find_by_invoice_id(match)  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      transaction.find {|data| data.invoice_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -6451,157 +5401,157 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_id(match)</code>
+          <code class="ruby">  def find_by_credit_card_number(match)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find {|data| data.credit_card_number == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">      [transaction.find {|data| data.id == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_invoice_id(match)  </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
-          
-          <code class="ruby">      [transaction.find {|data| data.invoice_id == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_credit_card_number(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">      [transaction.find {|data| data.credit_card_number == match}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_credit_card_expiration_date(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find {|data| data.credit_card_expiration_date == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">      [transaction.find {|data| data.credit_card_expiration_date == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      parent_engine</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_result(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      transaction.find {|data| data.result == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_created_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">      transaction.find {|data| data.created_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_updated_at(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">      transaction.find {|data| data.updated_at.downcase == match.downcase}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">   def find_all_by_id(match)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      transaction.find_all {|data| data.id == match}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_by_invoice_id(match)  </code>
+        </li>
+      
+        <li class="covered" data-hits="11192" data-linenumber="55">
+          <span class="hits">11192</span>
+          
+          <code class="ruby">      transaction.find_all {|data| data.invoice_id == match}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -6619,472 +5569,172 @@
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">  def find_by_result(match)</code>
+          <code class="ruby">  def find_all_by_credit_card_number(match)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="59">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find_all {|data| data.credit_card_number == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">      [transaction.find {|data| data.result == match}],</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_created_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="66">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="67">
-          
-          
-          <code class="ruby">      [transaction.find {|data| data.created_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_by_updated_at(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
-          
-          <code class="ruby">      [transaction.find {|data| data.updated_at.downcase == match.downcase}],</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">   def find_all_by_id(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_invoice_id(match)  </code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="87">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="covered" data-hits="11190" data-linenumber="88">
-          <span class="hits">11190</span>
-          
-          <code class="ruby">      transaction.find_all {|data| data.invoice_id == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def find_all_by_credit_card_number(match)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">    TransactionRepository.new(</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.credit_card_number == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_credit_card_expiration_date(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find_all {|data| data.credit_card_expiration_date == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.credit_card_expiration_date == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="103">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_result(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="108">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find_all {|data| data.result == match}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.result == match},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_created_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find_all {|data| data.created_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="116">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.created_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_all_by_updated_at(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="75">
           
           
-          <code class="ruby">    TransactionRepository.new(</code>
+          <code class="ruby">      transaction.find_all {|data| data.updated_at.downcase == match.downcase}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="123">
-          
-          
-          <code class="ruby">      transaction.find_all {|data| data.updated_at.downcase == match.downcase},</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="124">
-          
-          
-          <code class="ruby">      parent_engine</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="125">
-          
-          
-          <code class="ruby">    )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
           <code class="ruby">  def inspect</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="129">
+        <li class="missed" data-hits="0" data-linenumber="79">
           
           
           <code class="ruby">    &quot;#&lt;#{self.class} #{merchants.size} rows&gt;&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="130">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="134">
+        <li class="never" data-hits="" data-linenumber="84">
           
           
           <code class="ruby"># if __FILE__ == $0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="135">
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="136">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby"># end</code>

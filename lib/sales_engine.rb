@@ -1,5 +1,5 @@
-require './lib/sales_engine_requires'
-# require_relative './sales_engine_requires'
+# require './lib/sales_engine_requires'
+require_relative './sales_engine_requires'
 
 class SalesEngine
 
@@ -59,5 +59,6 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
+  puts engine.item_repository.find_by_unit_price("751.07").name
 end
 

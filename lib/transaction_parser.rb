@@ -1,6 +1,6 @@
 require 'csv'
-require './lib/transaction'
-# require_relative './transaction'
+# require './lib/transaction'
+require_relative './transaction'
 
 class TransactionParser
 
