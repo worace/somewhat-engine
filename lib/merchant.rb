@@ -45,15 +45,31 @@ class Merchant
     @successful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "success"}
   end
 
+  def unsuccessful_transactions
+    transactions
+    @unsuccessful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "failed"}
+  end
+
   def invoices_with_successful_transactions
     successful_transactions
     @successful_invoices_result ||= @invoices_results.select {|invoice| @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
+  end
+
+  def invoices_with_unsuccessful_transactions
+    unsuccessful_transactions
+    @unsuccessful_invoices_result ||= @invoices_results.select {|invoice| @unsuccessful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
   end
 
   def invoice_items_with_successful_transactions
     invoice_items
     invoices_with_successful_transactions 
     @successful_invoice_items_result ||= @invoice_items_result.select {|invoice_item| @successful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}}
+  end
+
+  def invoice_items_with_unsuccessful_transactions
+    invoice_items 
+    invoices_with_unsuccessful_transactions
+    @unsuccessful_invoice_items_result ||= @invoice_items_result.select {|invoice_item| @unsuccessful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}}
   end
 
    def invoice_items_with_successful_transactions_by_date(date)
@@ -94,14 +110,14 @@ class Merchant
     repository.parent_engine.customer_repository.find_by_id(favorite_customer.uniq.max[1])
   end
 
+  def customers_with_pending_invoices
+    invoices_with_successful_transactions
+    pending_invoices = @invoices_results.reject do |invoice|
+      @successful_invoices_result.any? {|success| success.id == invoice.id}
+    end
+    pending_invoices.map! {|invoice| repository.parent_engine.customer_repository.find_by_id(invoice.customer_id)}
+  end
 
-  # def best_day
-  #   invoices_with_successful_transactions
-  #   best_day = @successful_invoices_result.map do |invoice| 
-  #     [(@successful_invoices_result.count {|success_invoice| success_invoice.created_at == invoice.created_at}), invoice.created_at]
-  #   end
-  #   best_day.uniq.uniq.max[1]
-  # end
 end
 
 
