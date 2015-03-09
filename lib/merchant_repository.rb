@@ -1,3 +1,6 @@
+require 'bigdecimal'
+require 'bigdecimal/util'
+
 # require './lib/merchant'
 require_relative './merchant'
 
@@ -49,6 +52,38 @@ class MerchantRepository
 
   def find_all_by_updated_at(match)
       merchant.find_all {|data| data.updated_at.downcase == match.downcase}
+  end
+
+  def revenue(date)
+    sum = BigDecimal.new(0)
+    @merchant.each do |merchant|
+      sum += merchant.revenue(date)
+    end
+    sum
+  end
+
+  def most_revenue(x)
+    find_total_revenue
+    sorted_most_revenue = @most_revenue.sort {|item1,item2| item2.first <=> item1.first}
+    sorted_most_revenue[0..(x-1)].map {|element| element[1]}
+  end
+
+  def find_total_revenue
+    @most_revenue ||= @merchant.map do |merchant|
+      [merchant.revenue, merchant]
+    end
+  end
+
+  def most_items(x)
+    find_total_items
+    sorted_most_items = @most_items.sort {|item1,item2| item2.first <=> item1.first}
+    sorted_most_items[0..(x-1)].map {|element| element[1]}
+  end
+
+  def find_total_items
+    @most_items ||= @merchant.map do |merchant|
+      [merchant.sum_items, merchant]
+    end
   end
 
   def inspect

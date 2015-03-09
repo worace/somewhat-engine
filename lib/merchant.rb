@@ -27,9 +27,8 @@ class Merchant
   end
 
   def invoice_items
-    items
     @invoice_items_result ||= repository.parent_engine.invoice_item_repository.invoice_item.select do |invoice_item|
-      @items_results.any? {|item| item.id == invoice_item.item_id}
+      items.any? {|item| item.id == invoice_item.item_id}
     end
   end
 
@@ -74,7 +73,7 @@ class Merchant
 
    def invoice_items_with_successful_transactions_by_date(date)
     invoices_with_successful_transactions
-    @successful_invoices_by_date_result ||= @successful_invoices_result.select do |invoice|
+    @successful_invoices_by_date_result = @successful_invoices_result.select do |invoice|
       invoice.created_at == date
     end
   end
@@ -91,13 +90,13 @@ class Merchant
 
   def revenue_with_date(sum, date)
     invoice_items_with_successful_transactions_by_date(date)
-    @successful_invoice_items_by_date_result ||= @successful_invoice_items_result.select {|invoice_item| @successful_invoices_by_date_result.any? {|success| success.id == invoice_item.invoice_id}}
+    @successful_invoice_items_by_date_result = @successful_invoice_items_result.select {|invoice_item| @successful_invoices_by_date_result.any? {|success| success.id == invoice_item.invoice_id}}
     sum_revenue(sum,@successful_invoice_items_by_date_result)
   end
 
   def sum_revenue(sum,invoice_items)
     invoice_items.each do |item| 
-        sum += (item.quantity * BigDecimal.new(item.unit_price))
+      sum += (item.quantity * BigDecimal.new(item.unit_price))
     end
     sum
   end
@@ -117,6 +116,14 @@ class Merchant
     end
     pending_invoices.map! {|invoice| repository.parent_engine.customer_repository.find_by_id(invoice.customer_id)}
   end
+
+  def sum_items
+    invoice_items_with_successful_transactions
+    @successful_invoice_items_result.reduce(0) do |sum,invoice_item|
+      sum += invoice_item.quantity
+    end
+  end
+
 
 end
 

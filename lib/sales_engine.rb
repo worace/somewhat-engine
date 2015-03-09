@@ -59,9 +59,9 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
-  date = Date.parse "Fri, 09 Mar 2012"
-  thing = engine.merchant_repository.find_by_name("Parisian Group")
-  puts thing.customers_with_pending_invoices
+  
+  thing = engine.merchant_repository
+  puts thing.most_items(10)
   # print thing.customers_with_pending_invoices.count
   # puts "\n"
   # puts thing.unsuccessful_transactions.count
