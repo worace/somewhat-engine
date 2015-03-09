@@ -17,29 +17,32 @@ class Customer
   end
 
   def invoices
-    repository.parent_engine.invoice_repository.find_all_by_customer_id(id)
+    @invoices_results ||= repository.parent_engine.invoice_repository.find_all_by_customer_id(id)
   end
 
   def transactions
-    repository.parent_engine.transaction_repository.transaction.select do |transaction|
-      invoices.any? { |invoice| invoice.id == transaction.invoice_id }
+    invoices
+    @transactions_results ||= repository.parent_engine.transaction_repository.transaction.select do |transaction|
+      @invoices_results.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
 
   def favorite_merchant
-    favorite_merchant = []
-    invoices_with_successful_transactions.each do |invoice|
-      favorite_merchant << [(invoices_with_successful_transactions.count {|inv| inv == invoice}), invoice.merchant_id]
+    invoices_with_successful_transactions
+    favorite_merchant = @invoices_with_successful_transactions_result.map do |invoice|
+      [(@invoices_with_successful_transactions_result.count {|inv| inv == invoice}), invoice.merchant_id]
     end
     repository.parent_engine.merchant_repository.find_by_id(favorite_merchant.max[1])
   end
 
   def successful_transactions
-    successful_transactions = transactions.select {|transaction| transaction.result == "success"}
+    transactions
+    @successful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "success"}
   end
 
   def invoices_with_successful_transactions
-    invoices.select {|invoice| successful_transactions.any?{|transaction| transaction.invoice_id == invoice.id}}
+    successful_transactions
+    @invoices_with_successful_transactions_result ||= @invoices_results.select {|invoice| @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
   end
 
 end

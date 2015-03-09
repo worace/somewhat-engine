@@ -59,10 +59,8 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
-  items_finder = engine.item_repository
-  result = items_finder.most_revenue(5)
-  puts result.first.name
-  puts result.last.name
-  # puts "\n"
-  # puts items_finder.invoice_items_with_successful_transactions.size
+  date = Date.parse "Fri, 09 Mar 2012"
+  thing = engine.merchant_repository.find_by_name("Terry-Moore")
+  puts thing.favorite_customer
+
 end

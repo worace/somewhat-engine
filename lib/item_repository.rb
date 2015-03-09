@@ -1,3 +1,6 @@
+require 'bigdecimal'
+require 'bigdecimal/util'
+
 # require './lib/item'
 require_relative './item'
 
@@ -32,7 +35,7 @@ class ItemRepository
   end
 
   def find_by_unit_price(match)
-      price = match.to_s('F').scan(/\d/).join
+      price = match.to_d
       item.find {|data| data.unit_price == price}
   end
 

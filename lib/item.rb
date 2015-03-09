@@ -1,4 +1,6 @@
 require 'date'
+require 'bigdecimal'
+require 'bigdecimal/util'
 
 class Item
 
@@ -16,10 +18,10 @@ class Item
     @id = data[:id].to_i
     @name = data[:name]
     @description  = data[:description]
-    @unit_price = data[:unit_price].scan(/\d/).join
+    @unit_price = data[:unit_price].to_d/100
     @merchant_id = data[:merchant_id].to_i
-    @created_at = data[:created_at]
-    @updated_at = data[:updated_at]
+    @created_at = Date.parse(data[:created_at])
+    @updated_at = Date.parse(data[:updated_at])
   end
 
   def invoice_items
@@ -33,7 +35,7 @@ class Item
   def best_day
     invoices_with_successful_transactions
     best_day = @successful_invoices_result.map do |invoice| 
-      [(@successful_invoices_result.count {|inv| Date.parse(inv.created_at) == Date.parse(invoice.created_at)}), Date.parse(invoice.created_at)]
+      [(@successful_invoices_result.count {|success_invoice| success_invoice.created_at == invoice.created_at}), invoice.created_at]
     end
     best_day.uniq.uniq.max[1]
   end
