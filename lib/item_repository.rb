@@ -1,6 +1,3 @@
-require 'bigdecimal'
-require 'bigdecimal/util'
-
 # require './lib/item'
 require_relative './item'
 
@@ -35,7 +32,8 @@ class ItemRepository
   end
 
   def find_by_unit_price(match)
-      item.find {|data| data.unit_price == (match.scan(/\d/).join.to_d)}
+      price = match.to_s('F').scan(/\d/).join
+      item.find {|data| data.unit_price == price}
   end
 
   def find_by_merchant_id(match)
@@ -76,6 +74,26 @@ class ItemRepository
 
   def find_all_by_updated_at(match)
       item.find_all {|data| data.updated_at.downcase == match.downcase}
+  end
+
+  def most_items(x)
+    find_total_numbers_of_all_items_sold
+    sorted_items_by_total = @items_sold.sort {|item1,item2| item2.first <=> item1.first}
+    sorted_items_by_total[0..(x-1)].map {|element| element[1]}
+  end
+
+  def find_total_numbers_of_all_items_sold
+      @items_sold ||= item.map {|tally| [tally.items_sold, tally]}
+  end
+
+  def most_revenue(x)
+    find_total_revenue_of_all_items_sold
+    sorted_items_by_total = @items_revenue.sort {|item1,item2| item2.first <=> item1.first}
+    sorted_items_by_total[0..(x-1)].map {|element| element[1]}
+  end
+
+  def find_total_revenue_of_all_items_sold
+      @items_revenue ||= item.map {|tally| [tally.items_revenue, tally]}
   end
 
   def inspect

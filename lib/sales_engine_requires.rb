@@ -33,3 +33,6 @@ require_relative './invoice_item_parser'
 
 require_relative './transaction_repository'
 require_relative './transaction_parser'
+
+require 'bigdecimal'
+require 'bigdecimal/util'
