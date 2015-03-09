@@ -11,6 +11,25 @@ class InvoiceRepository
     @invoice = data.map {|element| (Invoice.new(self,element))}
   end
 
+  def create(customer, merchant, items)
+    create_invoice(customer,merchant)
+    #create_invoice_item(items)
+  end
+
+  def create_invoice(customer,merchant)
+        @invoice << Invoice.new(parent_engine,
+                            id: @invoice.last.id + 1,
+                            customer_id: customer.id,
+                            merchant_id: merchant.id,
+                            status: "shipped",
+                            created_at: Time.now.strftime("%d/%m/%Y %H:%M"),
+                            updated_at: Time.now.strftime("%d/%m/%Y %H:%M")
+                            )
+  end
+
+  def create_invoice_item(items)
+  end
+
   def all
       invoice
   end

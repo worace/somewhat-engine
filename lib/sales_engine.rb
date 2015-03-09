@@ -59,13 +59,10 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
-  
-  thing = engine.merchant_repository
-  puts thing.most_items(10)
-  # print thing.customers_with_pending_invoices.count
-  # puts "\n"
-  # puts thing.unsuccessful_transactions.count
-  # puts"\n"
-  # puts thing.invoice_items_with_unsuccessful_transactions.count
-
+  customer = engine.customer_repository.random
+  merchant = engine.merchant_repository.random
+  items = "nothing"
+  puts engine.invoice_repository.invoice.size
+  engine.invoice_repository.create(customer,merchant,items)
+  puts engine.invoice_repository.invoice.size
 end
