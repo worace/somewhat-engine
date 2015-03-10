@@ -6,57 +6,57 @@ require_relative './merchant'
 
 class MerchantRepository
 
-  attr_accessor :merchant,
+  attr_accessor :merchants,
                 :parent_engine
 
   def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @merchant = data.map {|element| (Merchant.new(self,element))}
+    @merchants = data.map {|element| (Merchant.new(self,element))}
   end
 
   def all
-      merchant
+      merchants
   end
 
   def random
-      merchant.sample
+      merchants.sample
   end
 
   def find_by_id(match)
-      merchant.find {|data| data.id == match}
+      merchants.find {|data| data.id == match}
   end
 
   def find_by_name(match)
-      merchant.find {|data| data.name.downcase == match.downcase}
+      merchants.find {|data| data.name.downcase == match.downcase}
   end
 
   def find_by_created_at(match)
-      merchant.find {|data| data.created_at.downcase == match.downcase}
+      merchants.find {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_by_updated_at(match)    
-      merchant.find {|data| data.updated_at.downcase == match.downcase}
+      merchants.find {|data| data.updated_at.downcase == match.downcase}
   end
 
   def find_all_by_id(match)
-      merchant.find_all {|data| data.id == match}
+      merchants.find_all {|data| data.id == match}
   end
 
   def find_all_by_name(match)
-      merchant.find_all {|data| data.name.downcase == match.downcase}
+      merchants.find_all {|data| data.name.downcase == match.downcase}
   end
 
   def find_all_by_created_at(match)
-      merchant.find_all {|data| data.created_at.downcase == match.downcase}
+      merchants.find_all {|data| data.created_at.downcase == match.downcase}
   end
 
   def find_all_by_updated_at(match)
-      merchant.find_all {|data| data.updated_at.downcase == match.downcase}
+      merchants.find_all {|data| data.updated_at.downcase == match.downcase}
   end
 
   def revenue(date)
     sum = BigDecimal.new(0)
-    @merchant.each do |merchant|
+    @merchants.each do |merchant|
       sum += merchant.revenue(date)
     end
     sum
@@ -69,7 +69,7 @@ class MerchantRepository
   end
 
   def find_total_revenue
-    @most_revenue ||= @merchant.map do |merchant|
+    @most_revenue ||= @merchants.map do |merchant|
       [merchant.revenue, merchant]
     end
   end
@@ -81,7 +81,7 @@ class MerchantRepository
   end
 
   def find_total_items
-    @most_items ||= @merchant.map do |merchant|
+    @most_items ||= @merchants.map do |merchant|
       [merchant.sum_items, merchant]
     end
   end

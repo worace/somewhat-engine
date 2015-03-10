@@ -27,7 +27,7 @@ class Merchant
   end
 
   def invoice_items
-    @invoice_items_result ||= repository.parent_engine.invoice_item_repository.invoice_item.select do |invoice_item|
+    @invoice_items_result ||= repository.parent_engine.invoice_item_repository.invoice_items.select do |invoice_item|
       items.any? {|item| item.id == invoice_item.item_id}
     end
   end
@@ -39,34 +39,46 @@ class Merchant
   end
 
   def successful_transactions
-    @successful_transactions_results ||= transactions.select {|transaction| transaction.result == "success"}
+    @successful_transactions_results ||= transactions.select do |transaction| 
+      transaction.result == "success"
+    end
   end
 
   def unsuccessful_transactions
     transactions
-    @unsuccessful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "failed"}
+    @unsuccessful_transactions_results ||= @transactions_results.select do |transaction| 
+      transaction.result == "failed"
+    end
   end
 
   def invoices_with_successful_transactions
     successful_transactions
-    @successful_invoices_result ||= @invoices_results.select {|invoice| @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
+    @successful_invoices_result ||= @invoices_results.select do |invoice| 
+      @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}
+    end
   end
 
   def invoices_with_unsuccessful_transactions
     unsuccessful_transactions
-    @unsuccessful_invoices_result ||= @invoices_results.select {|invoice| @unsuccessful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
+    @unsuccessful_invoices_result ||= @invoices_results.select do |invoice| 
+      @unsuccessful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}
+    end
   end
 
   def invoice_items_with_successful_transactions
     invoice_items
     invoices_with_successful_transactions 
-    @successful_invoice_items_result ||= @invoice_items_result.select {|invoice_item| @successful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}}
+    @successful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
+      @successful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}
+    end
   end
 
   def invoice_items_with_unsuccessful_transactions
     invoice_items 
     invoices_with_unsuccessful_transactions
-    @unsuccessful_invoice_items_result ||= @invoice_items_result.select {|invoice_item| @unsuccessful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}}
+    @unsuccessful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
+      @unsuccessful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}
+    end
   end
 
    def invoice_items_with_successful_transactions_by_date(date)
@@ -88,7 +100,9 @@ class Merchant
 
   def revenue_with_date(sum, date)
     invoice_items_with_successful_transactions_by_date(date)
-    @successful_invoice_items_by_date_result = @successful_invoice_items_result.select {|invoice_item| @successful_invoices_by_date_result.any? {|success| success.id == invoice_item.invoice_id}}
+    @successful_invoice_items_by_date_result = @successful_invoice_items_result.select do |invoice_item| 
+      @successful_invoices_by_date_result.any? {|success| success.id == invoice_item.invoice_id}
+    end
     sum_revenue(sum,@successful_invoice_items_by_date_result)
   end
 
