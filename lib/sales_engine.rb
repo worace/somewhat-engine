@@ -1,4 +1,3 @@
-# require './lib/sales_engine_requires'
 require_relative './sales_engine_requires'
 
 class SalesEngine
@@ -55,18 +54,4 @@ class SalesEngine
   end
 
 end
-
-if __FILE__ == $0
-  engine = SalesEngine.new("./data")
-  engine.startup
-  customer = engine.customer_repository.find_by_id(7)
-  merchant = engine.merchant_repository.find_by_id(22)
-  item1 = engine.item_repository.random
-  item2 = engine.item_repository.random
-  item3 = item1
-  items = [item1, item2, item3]
-  print items
-  #puts items.class
-end
-    
  

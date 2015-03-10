@@ -21,11 +21,11 @@ class Invoice
   end
 
   def transactions 
-    repository.parent_engine.transaction_repository.find_all_by_invoice_id(id)
+    transaction_repository.find_all_by_invoice_id(id)
   end
 
   def charge(data)
-    repository.parent_engine.transaction_repository.run_credit_card(data,id)
+    transaction_repository.run_credit_card(data, id)
   end
 
   def invoice_items
@@ -33,20 +33,48 @@ class Invoice
   end
 
   def items
-    items = get_invoice_items_for_self.map {|item| repository.parent_engine.item_repository.find_by_id(item.item_id)}
-    items.uniq
+    @items_result ||= get_invoice_items_for_self.map do |item| 
+      item_repository.find_by_id(item.item_id) 
+    end
+    @items_result.uniq
   end
 
   def get_invoice_items_for_self
-    repository.parent_engine.invoice_item_repository.find_all_by_invoice_id(id)
+    invoice_item_repository.find_all_by_invoice_id(id)
   end
 
   def customer
-    repository.parent_engine.customer_repository.find_by_id(customer_id)
+    customer_repository.find_by_id(customer_id)
   end
 
   def merchant
-    repository.parent_engine.merchant_repository.find_by_id(merchant_id)
+    merchant_repository.find_by_id(merchant_id)
   end
+
+  private
+
+  def sales_engine
+    repository.parent_engine
+  end
+
+  def transaction_repository
+    sales_engine.transaction_repository
+  end    
+
+  def item_repository
+    sales_engine.item_repository
+  end
+
+  def invoice_item_repository
+    sales_engine.invoice_item_repository
+  end
+
+  def merchant_repository
+    sales_engine.merchant_repository
+  end
+  
+  def customer_repository
+    sales_engine.customer_repository
+  end  
 
 end

@@ -9,7 +9,11 @@ class ItemRepository
 
   def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @items = data.map { |element| (Item.new(self,element)) }
+    @items         = data.map { |element| (Item.new(self, element)) }
+  end
+
+  def inspect
+    "#<#{self.class} #{merchants.size} rows>"
   end
 
   def all
@@ -20,85 +24,85 @@ class ItemRepository
     items.sample
   end
 
-  def find_by_id(match)
-    items.find { |data| data.id == match }
+  def find_by_id(id)
+    items.find { |data| data.id == id }
   end
 
-  def find_by_name(match)
-    items.find { |data| data.name.downcase == match.downcase }
+  def find_by_name(name)
+    items.find { |data| data.name.downcase == name.downcase }
   end
 
-  def find_by_description(match)
-    items.find { |data| data.description.downcase == match.downcase }
+  def find_by_description(description)
+    items.find { |data| data.description.downcase == description.downcase }
   end
 
-  def find_by_unit_price(match)
-    price = match.to_d
+  def find_by_unit_price(price)
+    price = price.to_d
     items.find { |data| data.unit_price == price }
   end
 
-  def find_by_merchant_id(match)
-    items.find { |data| data.merchant_id == match }
+  def find_by_merchant_id(id)
+    items.find { |data| data.merchant_id == id }
   end
 
-  def find_by_created_at(match)
-    items.find { |data| data.created_at.downcase == match.downcase }
+  def find_by_created_at(date)
+    items.find { |data| data.created_at.downcase == date.downcase }
   end
 
-  def find_by_updated_at(match)
-    items.find { |data| data.updated_at.downcase == match.downcase }
+  def find_by_updated_at(date)
+    items.find { |data| data.updated_at.downcase == date.downcase }
   end
 
-  def find_all_by_id(match)
-    items.find_all { |data| data.id == match }
+  def find_all_by_id(id)
+    items.find_all { |data| data.id == id }
   end
 
-  def find_all_by_name(match)
-    items.find_all { |data| data.name.downcase == match.downcase }
+  def find_all_by_name(name)
+    items.find_all { |data| data.name.downcase == name.downcase }
   end
 
-  def find_all_by_description(match)
-    items.find_all { |data| data.description.downcase == match.downcase }
+  def find_all_by_description(description)
+    items.find_all { |data| data.description.downcase == description.downcase }
   end
 
-  def find_all_by_unit_price(match)
-    items.find_all { |data| data.unit_price == match }
+  def find_all_by_unit_price(price)
+    items.find_all { |data| data.unit_price == price }
   end
 
-  def find_all_by_merchant_id(match)
-    items.find_all { |data| data.merchant_id == match }
+  def find_all_by_merchant_id(id)
+    items.find_all { |data| data.merchant_id == id }
   end
 
-  def find_all_by_created_at(match)
-    items.find_all { |data| data.created_at.downcase == match.downcase }
+  def find_all_by_created_at(date)
+    items.find_all { |data| data.created_at.downcase == date.downcase }
   end
 
-  def find_all_by_updated_at(match)
-    items.find_all { |data| data.updated_at.downcase == match.downcase }
+  def find_all_by_updated_at(date)
+    items.find_all { |data| data.updated_at.downcase == date.downcase }
   end
 
-  def most_items(x)
-    find_total_numbers_of_all_items_sold
-    sorted_items_by_total = @items_sold.sort { |item1,item2| item2.first <=> item1.first }
-    sorted_items_by_total[0..(x-1)].map { |element| element[1] }
+  def most_items(top_x)
+    items_sold = find_number_sold.sort do |item_1, item_2|
+      item_2.first <=> item_1.first
+    end
+    items_sold[0..(top_x-1)].map { |item| item[1] }
+  end
+  
+  def most_revenue(top_x)
+    items_revenue = find_item_revenue.sort do |item_1, item_2| 
+      item_2.first <=> item_1.first
+    end
+    items_revenue[0..(top_x-1)].map { |item| item[1] }
   end
 
-  def find_total_numbers_of_all_items_sold
-    @items_sold ||= items.map {|tally| [tally.items_sold, tally]}
+  private
+
+  def find_number_sold
+    @items_sold ||= items.map { |item| [item.items_sold, item] }
   end
 
-  def most_revenue(x)
-    find_total_revenue_of_all_items_sold
-    sorted_items_by_total = @items_revenue.sort { |item1,item2| item2.first <=> item1.first }
-    sorted_items_by_total[0..(x-1)].map { |element| element[1] }
-  end
-
-  def find_total_revenue_of_all_items_sold
-    @items_revenue ||= items.map { |tally| [tally.items_revenue, tally] }
-  end
-
-  def inspect
-    "#<#{self.class} #{merchants.size} rows>"
+  def find_item_revenue
+    @items_revenue ||= items.map { |item| [item.items_revenue, item] }
   end
 
 end

@@ -1,6 +1,6 @@
-require 'date'
-require 'bigdecimal'
 require 'bigdecimal/util'
+require 'bigdecimal'
+require 'date'
 
 class Merchant
 
@@ -12,8 +12,8 @@ class Merchant
 
   def initialize(repository, data)
     @repository = repository
-    @id = data[:id].to_i
-    @name = data[:name]
+    @id         = data[:id].to_i
+    @name       = data[:name]
     @created_at = Date.parse(data[:created_at])
     @updated_at = Date.parse(data[:updated_at])
   end
@@ -28,13 +28,13 @@ class Merchant
 
   def invoice_items
     @invoice_items_result ||= repository.parent_engine.invoice_item_repository.invoice_items.select do |invoice_item|
-      items.any? {|item| item.id == invoice_item.item_id}
+      items.any? { |item| item.id == invoice_item.item_id }
     end
   end
 
   def transactions
     @transactions_results ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
-      invoices.any? {|invoice| invoice.id == transaction.invoice_id }
+      invoices.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
 
@@ -54,14 +54,14 @@ class Merchant
   def invoices_with_successful_transactions
     successful_transactions
     @successful_invoices_result ||= @invoices_results.select do |invoice| 
-      @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}
+      @successful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id }
     end
   end
 
   def invoices_with_unsuccessful_transactions
     unsuccessful_transactions
     @unsuccessful_invoices_result ||= @invoices_results.select do |invoice| 
-      @unsuccessful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}
+      @unsuccessful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id }
     end
   end
 
@@ -69,7 +69,7 @@ class Merchant
     invoice_items
     invoices_with_successful_transactions 
     @successful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
-      @successful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}
+      @successful_invoices_result.any? { |invoice| invoice.id == invoice_item.invoice_id }
     end
   end
 
@@ -77,7 +77,7 @@ class Merchant
     invoice_items 
     invoices_with_unsuccessful_transactions
     @unsuccessful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
-      @unsuccessful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}
+      @unsuccessful_invoices_result.any? { |invoice| invoice.id == invoice_item.invoice_id }
     end
   end
 
@@ -101,7 +101,7 @@ class Merchant
   def revenue_with_date(sum, date)
     invoice_items_with_successful_transactions_by_date(date)
     @successful_invoice_items_by_date_result = @successful_invoice_items_result.select do |invoice_item| 
-      @successful_invoices_by_date_result.any? {|success| success.id == invoice_item.invoice_id}
+      @successful_invoices_by_date_result.any? { |success| success.id == invoice_item.invoice_id }
     end
     sum_revenue(sum,@successful_invoice_items_by_date_result)
   end
@@ -116,7 +116,7 @@ class Merchant
   def favorite_customer
     invoices_with_successful_transactions
     favorite_customer = @successful_invoices_result.map do |invoice|
-      [(@successful_invoices_result.count {|success_invoice| success_invoice.customer_id == invoice.customer_id}), invoice.customer_id]
+      [(@successful_invoices_result.count { |success_invoice| success_invoice.customer_id == invoice.customer_id } ), invoice.customer_id]
     end
     repository.parent_engine.customer_repository.find_by_id(favorite_customer.uniq.max[1])
   end
@@ -124,9 +124,9 @@ class Merchant
   def customers_with_pending_invoices
     invoices_with_successful_transactions
     pending_invoices = @invoices_results.reject do |invoice|
-      @successful_invoices_result.any? {|success| success.id == invoice.id}
+      @successful_invoices_result.any? { |success| success.id == invoice.id }
     end
-    pending_invoices.map! {|invoice| repository.parent_engine.customer_repository.find_by_id(invoice.customer_id)}
+    pending_invoices.map! { |invoice| repository.parent_engine.customer_repository.find_by_id(invoice.customer_id) }
   end
 
   def sum_items
@@ -136,14 +136,4 @@ class Merchant
     end
   end
 
-
 end
-
-
-
-
-
-
-
-
-

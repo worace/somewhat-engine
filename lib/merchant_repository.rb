@@ -1,8 +1,6 @@
-require 'bigdecimal'
-require 'bigdecimal/util'
-
-# require './lib/merchant'
 require_relative './merchant'
+require 'bigdecimal/util'
+require 'bigdecimal'
 
 class MerchantRepository
 
@@ -11,7 +9,11 @@ class MerchantRepository
 
   def initialize(data, sales_engine)
     @parent_engine = sales_engine
-    @merchants = data.map {|element| (Merchant.new(self,element))}
+    @merchants     = data.map { |element| (Merchant.new(self,element)) }
+  end
+
+  def inspect
+    "#<#{self.class} #{merchants.size} rows>"
   end
 
   def all
@@ -22,36 +24,36 @@ class MerchantRepository
       merchants.sample
   end
 
-  def find_by_id(match)
-      merchants.find {|data| data.id == match}
+  def find_by_id(id)
+      merchants.find { |data| data.id == id }
   end
 
-  def find_by_name(match)
-      merchants.find {|data| data.name.downcase == match.downcase}
+  def find_by_name(name)
+      merchants.find { |data| data.name.downcase == name.downcase }
   end
 
-  def find_by_created_at(match)
-      merchants.find {|data| data.created_at.downcase == match.downcase}
+  def find_by_created_at(date)
+      merchants.find { |data| data.created_at.downcase == date.downcase }
   end
 
-  def find_by_updated_at(match)    
-      merchants.find {|data| data.updated_at.downcase == match.downcase}
+  def find_by_updated_at(date)    
+      merchants.find { |data| data.updated_at.downcase == date.downcase }
   end
 
-  def find_all_by_id(match)
-      merchants.find_all {|data| data.id == match}
+  def find_all_by_id(id)
+      merchants.find_all { |data| data.id == id }
   end
 
-  def find_all_by_name(match)
-      merchants.find_all {|data| data.name.downcase == match.downcase}
+  def find_all_by_name(name)
+      merchants.find_all { |data| data.name.downcase == name.downcase }
   end
 
-  def find_all_by_created_at(match)
-      merchants.find_all {|data| data.created_at.downcase == match.downcase}
+  def find_all_by_created_at(date)
+      merchants.find_all { |data| data.created_at.downcase == date.downcase }
   end
 
-  def find_all_by_updated_at(match)
-      merchants.find_all {|data| data.updated_at.downcase == match.downcase}
+  def find_all_by_updated_at(date)
+      merchants.find_all { |data| data.updated_at.downcase == date.downcase }
   end
 
   def revenue(date)
@@ -86,14 +88,4 @@ class MerchantRepository
     end
   end
 
-  def inspect
-    "#<#{self.class} #{merchants.size} rows>"
-  end
-
 end
-
-if __FILE__ == $0
-  merchant_repository = MerchantRepository.new
-  puts merchant_repository.find_all_by_name("Williamson Group")
-end
-

@@ -1,6 +1,5 @@
-require 'csv'
-# require './lib/transaction'
 require_relative './transaction'
+require 'csv'
 
 class TransactionParser
 
@@ -9,6 +8,8 @@ class TransactionParser
   def initialize(file_path)
     @transaction_data = CSV.open(file_path,
                                  headers: true,
-                                 header_converters: :symbol)
+                                 header_converters: :symbol
+                                 )
   end
+
 end

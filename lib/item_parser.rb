@@ -8,6 +8,8 @@ class ItemParser
   def initialize(file_path)
     @item_data = CSV.open(file_path,
                           headers: true,
-                          header_converters: :symbol)
+                          header_converters: :symbol
+                          )
   end
+  
 end

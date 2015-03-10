@@ -9,6 +9,7 @@ class InvoiceParser
     @invoice_data = CSV.open(file_path,
                              headers: true,
                              header_converters: :symbol
-                            )
+                             )
   end
+  
 end

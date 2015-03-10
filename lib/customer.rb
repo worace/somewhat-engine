@@ -16,35 +16,68 @@ class Customer
     @updated_at = data[:updated_at]
   end
 
+  def favorite_merchant
+    invoice_count = invoices_with_successful_transactions.map do |invoice|
+      count_merchant_invoices(invoice)
+    end
+    merchant_repository.find_by_id(invoice_count.max[1])
+  end
+
   def invoices
-    @invoices_results ||= repository.parent_engine.invoice_repository.find_all_by_customer_id(id)
+    @invoices ||= invoice_repository.find_all_by_customer_id(id)
   end
 
   def transactions
-    invoices
-    @transactions_results ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
-      @invoices_results.any? { |invoice| invoice.id == transaction.invoice_id }
+    @transactions ||= transaction_repository.transactions.select do |transaction|
+      find_any_invoices(transaction)
     end
-  end
-
-  def favorite_merchant
-    invoices_with_successful_transactions
-    favorite_merchant = @invoices_with_successful_transactions_result.map do |invoice|
-      [(@invoices_with_successful_transactions_result.count { |inv| inv == invoice } ), invoice.merchant_id]
-    end
-    repository.parent_engine.merchant_repository.find_by_id(favorite_merchant.max[1])
   end
 
   def successful_transactions
-    transactions
-    @successful_transactions_results ||= @transactions_results.select { |transaction| transaction.result == "success" }
+    @successful_transactions ||= transactions.select do |transaction|
+      transaction.result == "success"
+    end
   end
+
+  def invoices_with_successful_transactions
+    @invoices_with_successful_transactions ||= invoices.select do |invoice|
+      find_any_successful_transactions(invoice)
+    end
+  end 
 
   private
 
-  def invoices_with_successful_transactions
-    successful_transactions
-    @invoices_with_successful_transactions_result ||= @invoices_results.select { |invoice| @successful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id } }
-  end 
+  def sales_engine
+    repository.parent_engine
+  end
+
+  def invoice_repository
+    sales_engine.invoice_repository
+  end
+
+  def merchant_repository
+    sales_engine.merchant_repository
+  end
+
+  def transaction_repository
+    sales_engine.transaction_repository
+  end
+
+  def find_any_invoices(transaction)
+    invoices.any? { |invoice| invoice.id == transaction.invoice_id }
+  end
+
+  def find_any_successful_transactions(invoice)
+    successful_transactions.any? do |transaction|
+      transaction.invoice_id == invoice.id
+    end
+  end
+
+  def count_merchant_invoices(invoice)
+    count = invoices_with_successful_transactions.count do |successful_invoice| 
+      successful_invoice == invoice
+    end
+    [count, invoice.merchant_id]
+  end
 
 end
