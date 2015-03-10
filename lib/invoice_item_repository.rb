@@ -11,6 +11,27 @@ class InvoiceItemRepository
     @invoice_item = data.map {|element| (InvoiceItem.new(self,element))}
   end
 
+  def create(data,invoice_id)
+    item_count = sum_items(data[:items]).uniq
+    item_count.each do |new_item|
+      @invoice_item << InvoiceItem.new(parent_engine,
+                                       id: @invoice_item.last.id + 1,
+                                       item_id: new_item[1].id,
+                                       invoice_id: invoice_id,
+                                       quantity: new_item[0],
+                                       unit_price: new_item[1].unit_price,
+                                       created_at: Time.now.strftime("%d/%m/%Y %H:%M"),
+                                       updated_at: Time.now.strftime("%d/%m/%Y %H:%M")
+                                      )
+    end
+  end
+
+  def sum_items(items)
+    items.map do |item|
+      [items.count {|item_num| item_num == item}, item]
+    end
+  end
+
   def all
       invoice_item
   end

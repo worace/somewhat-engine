@@ -59,10 +59,14 @@ end
 if __FILE__ == $0
   engine = SalesEngine.new("./data")
   engine.startup
-  customer = engine.customer_repository.random
-  merchant = engine.merchant_repository.random
-  items = "nothing"
-  puts engine.invoice_repository.invoice.size
-  engine.invoice_repository.create(customer,merchant,items)
-  puts engine.invoice_repository.invoice.size
+  customer = engine.customer_repository.find_by_id(7)
+  merchant = engine.merchant_repository.find_by_id(22)
+  item1 = engine.item_repository.random
+  item2 = engine.item_repository.random
+  item3 = item1
+  items = [item1, item2, item3]
+  print items
+  #puts items.class
 end
+    
+ 

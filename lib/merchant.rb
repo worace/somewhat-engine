@@ -33,15 +33,13 @@ class Merchant
   end
 
   def transactions
-    invoices
     @transactions_results ||= repository.parent_engine.transaction_repository.transaction.select do |transaction|
-      @invoices_results.any? {|invoice| invoice.id == transaction.invoice_id }
+      invoices.any? {|invoice| invoice.id == transaction.invoice_id }
     end
   end
 
   def successful_transactions
-    transactions
-    @successful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "success"}
+    @successful_transactions_results ||= transactions.select {|transaction| transaction.result == "success"}
   end
 
   def unsuccessful_transactions
