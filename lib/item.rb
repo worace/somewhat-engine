@@ -70,7 +70,7 @@ class Item
     sales_engine.merchant_repository
   end
 
-  def transaction_repo
+  def transaction_repository
     sales_engine.transaction_repository
   end
 
@@ -117,8 +117,8 @@ class Item
   end
 
   def transactions
-    @transactions_result ||= transaction_repo.transactions.select do |entry|
-      invoices.any? { |invoice| invoice.id == entry.invoice_id }
+    @transactions_result ||= transaction_repository.transactions.select do |transaction|
+      invoices.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
 

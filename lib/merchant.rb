@@ -19,21 +19,98 @@ class Merchant
   end
 
   def items
-    @items_results ||= repository.parent_engine.item_repository.find_all_by_merchant_id(id)
-  end
-
-  def invoices
-    @invoices_results ||= repository.parent_engine.invoice_repository.find_all_by_merchant_id(id)
+    @items_results ||= item_repository.find_all_by_merchant_id(id)
   end
 
   def invoice_items
-    @invoice_items_result ||= repository.parent_engine.invoice_item_repository.invoice_items.select do |invoice_item|
+    @invoice_items_result ||= invoice_item_repository.invoice_items.select do |invoice_item|
       items.any? { |item| item.id == invoice_item.item_id }
     end
   end
 
-  def transactions
-    @transactions_results ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
+
+  def invoices
+    @invoices_results ||= invoice_repository.find_all_by_merchant_id(id)
+  end
+
+
+  def revenue(date = nil)
+    sum = BigDecimal.new(0)
+    successful_invoice_items
+    date == nil ? revenue_no_date(sum) : revenue_with_date(sum, date)
+  end
+
+  def revenue_no_date(sum)
+    sum_revenue(sum, successful_invoice_items)
+  end
+
+  def revenue_with_date(sum, date)
+    result = invoice_items_with_successful_transactions_by_date(date)
+    invoice_items_for_date = successful_invoice_items.select do |invoice_item| 
+      result.any? { |success| success.id == invoice_item.invoice_id }
+    end
+    sum_revenue(sum, invoice_items_for_date)
+  end
+
+  def sum_revenue(sum,invoice_items)
+    invoice_items.each do |item| 
+      sum += (item.quantity * BigDecimal.new(item.unit_price))
+    end
+    sum
+  end
+
+  def favorite_customer
+    favorite_customer = successful_invoices.map do |invoice|
+      [(successful_invoices.count { |success_invoice| success_invoice.customer_id == invoice.customer_id } ), invoice.customer_id]
+    end
+    customer_repository.find_by_id(favorite_customer.uniq.max[1])
+  end
+
+  def customers_with_pending_invoices
+    pending_invoices = invoices.reject do |invoice|
+      successful_invoices.any? { |success| success.id == invoice.id }
+    end
+    pending_invoices.map! { |invoice| customer_repository.find_by_id(invoice.customer_id) }
+  end
+
+  def sum_items
+    successful_invoice_items.reduce(0) do |sum,invoice_item|
+      sum += invoice_item.quantity
+    end
+  end
+
+
+  private 
+
+  def unsuccessful_invoices
+    invoice_items
+    invoices
+    transactions
+    unsuccessful_transactions
+    invoices_with_unsuccessful_transactions
+  end
+
+  def unsuccessful_invoice_items
+    unsuccessful_invoices
+    invoice_items_with_unsuccessful_transactions
+  end
+
+  def successful_invoices
+    invoice_items
+    invoices
+    transactions
+    successful_transactions
+    invoices_with_successful_transactions
+  end
+
+  def successful_invoice_items
+    successful_invoices
+    invoice_items_with_successful_transactions
+  end
+
+
+ def transactions
+    @transactions_results ||= transaction_repository.transactions.select do |transaction|
       invoices.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
@@ -45,95 +122,69 @@ class Merchant
   end
 
   def unsuccessful_transactions
-    transactions
-    @unsuccessful_transactions_results ||= @transactions_results.select do |transaction| 
+    @unsuccessful_transactions_results ||= transactions.select do |transaction| 
       transaction.result == "failed"
     end
   end
 
   def invoices_with_successful_transactions
-    successful_transactions
-    @successful_invoices_result ||= @invoices_results.select do |invoice| 
-      @successful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id }
+    @successful_invoices_result ||= invoices.select do |invoice| 
+      successful_transactions.any? { |transaction| transaction.invoice_id == invoice.id }
     end
   end
 
   def invoices_with_unsuccessful_transactions
-    unsuccessful_transactions
-    @unsuccessful_invoices_result ||= @invoices_results.select do |invoice| 
-      @unsuccessful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id }
+    @unsuccessful_invoices_result ||= invoices.select do |invoice| 
+      unsuccessful_transactions.any? { |transaction| transaction.invoice_id == invoice.id }
     end
   end
 
   def invoice_items_with_successful_transactions
-    invoice_items
     invoices_with_successful_transactions 
-    @successful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
-      @successful_invoices_result.any? { |invoice| invoice.id == invoice_item.invoice_id }
+    @successful_invoice_items_result ||= invoice_items.select do |invoice_item| 
+      successful_invoices.any? { |invoice| invoice.id == invoice_item.invoice_id }
     end
   end
 
   def invoice_items_with_unsuccessful_transactions
-    invoice_items 
-    invoices_with_unsuccessful_transactions
-    @unsuccessful_invoice_items_result ||= @invoice_items_result.select do |invoice_item| 
-      @unsuccessful_invoices_result.any? { |invoice| invoice.id == invoice_item.invoice_id }
+    @unsuccessful_invoice_items_result ||= invoice_items.select do |invoice_item| 
+      invoices_with_unsuccessful_transactions.any? { |invoice| invoice.id == invoice_item.invoice_id }
     end
   end
 
    def invoice_items_with_successful_transactions_by_date(date)
-    invoices_with_successful_transactions
-    @successful_invoices_by_date_result = @successful_invoices_result.select do |invoice|
+    @successful_invoices_by_date_result = successful_invoices.select do |invoice|
       invoice.created_at == date
     end
   end
 
-  def revenue(date = nil)
-    sum = BigDecimal.new(0)
-    invoice_items_with_successful_transactions
-    date == nil ? revenue_no_date(sum) : revenue_with_date(sum, date)
+
+  def sales_engine
+    repository.parent_engine
   end
 
-  def revenue_no_date(sum)
-    sum_revenue(sum,@successful_invoice_items_result)
+  def invoice_repository
+    sales_engine.invoice_repository
   end
 
-  def revenue_with_date(sum, date)
-    invoice_items_with_successful_transactions_by_date(date)
-    @successful_invoice_items_by_date_result = @successful_invoice_items_result.select do |invoice_item| 
-      @successful_invoices_by_date_result.any? { |success| success.id == invoice_item.invoice_id }
-    end
-    sum_revenue(sum,@successful_invoice_items_by_date_result)
+  def invoice_item_repository
+    sales_engine.invoice_item_repository
   end
 
-  def sum_revenue(sum,invoice_items)
-    invoice_items.each do |item| 
-      sum += (item.quantity * BigDecimal.new(item.unit_price))
-    end
-    sum
+  def merchant_repository
+    sales_engine.merchant_repository
   end
 
-  def favorite_customer
-    invoices_with_successful_transactions
-    favorite_customer = @successful_invoices_result.map do |invoice|
-      [(@successful_invoices_result.count { |success_invoice| success_invoice.customer_id == invoice.customer_id } ), invoice.customer_id]
-    end
-    repository.parent_engine.customer_repository.find_by_id(favorite_customer.uniq.max[1])
+  def transaction_repository
+    sales_engine.transaction_repository
   end
 
-  def customers_with_pending_invoices
-    invoices_with_successful_transactions
-    pending_invoices = @invoices_results.reject do |invoice|
-      @successful_invoices_result.any? { |success| success.id == invoice.id }
-    end
-    pending_invoices.map! { |invoice| repository.parent_engine.customer_repository.find_by_id(invoice.customer_id) }
+  def item_repository
+    sales_engine.item_repository
   end
 
-  def sum_items
-    invoice_items_with_successful_transactions
-    @successful_invoice_items_result.reduce(0) do |sum,invoice_item|
-      sum += invoice_item.quantity
-    end
+  def customer_repository
+    sales_engine.customer_repository
   end
 
 end
