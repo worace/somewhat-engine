@@ -1,6 +1,5 @@
-require 'csv'
-# require './lib/invoice'
 require_relative './invoice'
+require 'csv'
 
 class InvoiceParser
 
@@ -9,6 +8,7 @@ class InvoiceParser
   def initialize(file_path)
     @invoice_data = CSV.open(file_path,
                              headers: true,
-                             header_converters: :symbol)
+                             header_converters: :symbol
+                            )
   end
 end

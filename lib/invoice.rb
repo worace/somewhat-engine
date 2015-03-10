@@ -11,17 +11,21 @@ class Invoice
                 :updated_at
 
   def initialize(repository, data)
-    @repository = repository
-    @id = data[:id].to_i
+    @repository  = repository
+    @id          = data[:id].to_i
     @customer_id = data[:customer_id].to_i
     @merchant_id = data[:merchant_id].to_i
-    @status = data[:status]
-    @created_at = Date.parse(data[:created_at])
-    @updated_at = Date.parse(data[:updated_at])
+    @status      = data[:status]
+    @created_at  = Date.parse(data[:created_at])
+    @updated_at  = Date.parse(data[:updated_at])
   end
 
   def transactions 
     repository.parent_engine.transaction_repository.find_all_by_invoice_id(id)
+  end
+
+  def charge(data)
+    repository.parent_engine.transaction_repository.run_credit_card(data,id)
   end
 
   def invoice_items
@@ -29,8 +33,8 @@ class Invoice
   end
 
   def items
-      items = get_invoice_items_for_self.map {|item| repository.parent_engine.item_repository.find_by_id(item.item_id)}
-      items.uniq
+    items = get_invoice_items_for_self.map {|item| repository.parent_engine.item_repository.find_by_id(item.item_id)}
+    items.uniq
   end
 
   def get_invoice_items_for_self

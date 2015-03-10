@@ -9,7 +9,7 @@ class Customer
 
   def initialize(repository, data)
     @repository = repository
-    @id = data[:id].to_i
+    @id         = data[:id].to_i
     @first_name = data[:first_name]
     @last_name  = data[:last_name]
     @created_at = data[:created_at]
@@ -22,7 +22,7 @@ class Customer
 
   def transactions
     invoices
-    @transactions_results ||= repository.parent_engine.transaction_repository.transaction.select do |transaction|
+    @transactions_results ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
       @invoices_results.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
@@ -30,20 +30,21 @@ class Customer
   def favorite_merchant
     invoices_with_successful_transactions
     favorite_merchant = @invoices_with_successful_transactions_result.map do |invoice|
-      [(@invoices_with_successful_transactions_result.count {|inv| inv == invoice}), invoice.merchant_id]
+      [(@invoices_with_successful_transactions_result.count { |inv| inv == invoice } ), invoice.merchant_id]
     end
     repository.parent_engine.merchant_repository.find_by_id(favorite_merchant.max[1])
   end
 
   def successful_transactions
     transactions
-    @successful_transactions_results ||= @transactions_results.select {|transaction| transaction.result == "success"}
+    @successful_transactions_results ||= @transactions_results.select { |transaction| transaction.result == "success" }
   end
+
+  private
 
   def invoices_with_successful_transactions
     successful_transactions
-    @invoices_with_successful_transactions_result ||= @invoices_results.select {|invoice| @successful_transactions_results.any?{|transaction| transaction.invoice_id == invoice.id}}
-  end
+    @invoices_with_successful_transactions_result ||= @invoices_results.select { |invoice| @successful_transactions_results.any? { |transaction| transaction.invoice_id == invoice.id } }
+  end 
 
 end
-

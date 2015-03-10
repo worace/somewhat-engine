@@ -1,6 +1,6 @@
-require 'date'
-require 'bigdecimal'
 require 'bigdecimal/util'
+require 'bigdecimal'
+require 'date'
 
 class Item
 
@@ -14,14 +14,14 @@ class Item
                 :updated_at
 
   def initialize(repository, data)
-    @repository = repository
-    @id = data[:id].to_i
-    @name = data[:name]
+    @repository   = repository
+    @id           = data[:id].to_i
+    @name         = data[:name]
     @description  = data[:description]
-    @unit_price = data[:unit_price].to_d/100
-    @merchant_id = data[:merchant_id].to_i
-    @created_at = Date.parse(data[:created_at])
-    @updated_at = Date.parse(data[:updated_at])
+    @unit_price   = data[:unit_price].to_d/100
+    @merchant_id  = data[:merchant_id].to_i
+    @created_at   = Date.parse(data[:created_at])
+    @updated_at   = Date.parse(data[:updated_at])
   end
 
   def invoice_items
@@ -35,48 +35,48 @@ class Item
   def best_day
     invoices_with_successful_transactions
     best_day = @successful_invoices_result.map do |invoice| 
-      [(@successful_invoices_result.count {|success_invoice| success_invoice.created_at == invoice.created_at}), invoice.created_at]
+      [(@successful_invoices_result.count { |success_invoice| success_invoice.created_at == invoice.created_at } ), invoice.created_at]
     end
     best_day.uniq.uniq.max[1]
   end
 
   def invoices_with_successful_transactions
     successful_transactions
-    @successful_invoices_result ||= @invoices_result.select {|invoice| @successful_transactions_result.any?{|transaction| transaction.invoice_id == invoice.id}}
+    @successful_invoices_result ||= @invoices_result.select { |invoice| @successful_transactions_result.any? { |transaction| transaction.invoice_id == invoice.id } }
   end
 
   def invoice_items_with_successful_transactions
     invoices_with_successful_transactions 
-    @successful_invoice_items_result ||= @invoice_items_result.select {|invoice_item| @successful_invoices_result.any? {|invoice| invoice.id == invoice_item.invoice_id}}
+    @successful_invoice_items_result ||= @invoice_items_result.select { |invoice_item| @successful_invoices_result.any? { |invoice| invoice.id == invoice_item.invoice_id } }
   end
 
   def successful_transactions
     transactions
-    @successful_transactions_result ||= @transactions_result.select {|transaction| transaction.result == "success"}
+    @successful_transactions_result ||= @transactions_result.select { |transaction| transaction.result == "success" }
   end
 
   def transactions
     invoices
-    @transactions_result ||= repository.parent_engine.transaction_repository.transaction.select do |transaction|
+    @transactions_result ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
       @invoices_result.any? { |invoice| invoice.id == transaction.invoice_id }
     end
   end
 
   def invoices
     invoice_items 
-    @invoices_result ||= repository.parent_engine.invoice_repository.invoice.select do |invoice|
-      @invoice_items_result.any? {|invoice_item| invoice_item.invoice_id == invoice.id}
+    @invoices_result ||= repository.parent_engine.invoice_repository.invoices.select do |invoice|
+      @invoice_items_result.any? { |invoice_item| invoice_item.invoice_id == invoice.id }
     end 
   end
 
   def items_sold
     invoice_items_with_successful_transactions
-    @successful_invoice_items_result.reduce(0) {|sum,item| sum += item.quantity}
+    @successful_invoice_items_result.reduce(0) { |sum,item| sum += item.quantity }
   end
 
    def items_revenue
     invoice_items_with_successful_transactions
-    @successful_invoice_items_result.reduce(0) {|sum,item| sum += (item.quantity * item.unit_price)}
+    @successful_invoice_items_result.reduce(0) { |sum,item| sum += (item.quantity * item.unit_price) }
   end
 
 end

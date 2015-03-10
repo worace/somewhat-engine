@@ -1,6 +1,6 @@
-require 'date'
-require 'bigdecimal'
 require 'bigdecimal/util'
+require 'bigdecimal'
+require 'date'
 
 class InvoiceItem
 

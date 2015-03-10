@@ -33,7 +33,7 @@ class Merchant
   end
 
   def transactions
-    @transactions_results ||= repository.parent_engine.transaction_repository.transaction.select do |transaction|
+    @transactions_results ||= repository.parent_engine.transaction_repository.transactions.select do |transaction|
       invoices.any? {|invoice| invoice.id == transaction.invoice_id }
     end
   end

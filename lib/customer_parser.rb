@@ -1,6 +1,5 @@
-require 'csv'
-# require './lib/customer'
 require_relative './customer'
+require 'csv'
 
 class CustomerParser
 
@@ -9,12 +8,8 @@ class CustomerParser
   def initialize(file_path)
     @customer_data = CSV.open(file_path,
                               headers: true,
-                              header_converters: :symbol)
+                              header_converters: :symbol
+                              )
   end
-end
 
-# if __FILE__ == $0
-#   customer_parser = CustomerParser.new
-#   customer_parser.read_customer_data_from_csv_file
-#   puts customer_parser.customer_data
-# end
+end
