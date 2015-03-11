@@ -9,7 +9,7 @@ class TransactionRepository
   end
 
   def inspect
-    "#<#{self.class} #{merchants.size} rows>"
+    "#<#{self.class} #{transactions.size} rows>"
   end
 
   def run_credit_card(data, id)
@@ -46,11 +46,11 @@ class TransactionRepository
   end
 
   def find_by_created_at(date)
-    transactions.find {|data| data.created_at.downcase == date.downcase}
+    transactions.find {|data| data.created_at == date}
   end
 
   def find_by_updated_at(date)
-    transactions.find {|data| data.updated_at.downcase == date.downcase}
+    transactions.find {|data| data.updated_at == date}
   end
 
   def find_all_by_id(id)
@@ -74,11 +74,11 @@ class TransactionRepository
   end
 
   def find_all_by_created_at(date)
-    transactions.find_all {|data| data.created_at.downcase == date.downcase}
+    transactions.find_all {|data| data.created_at == date}
   end
 
   def find_all_by_updated_at(date)
-    transactions.find_all {|data| data.updated_at.downcase == date.downcase}
+    transactions.find_all {|data| data.updated_at == date}
   end
 
   private

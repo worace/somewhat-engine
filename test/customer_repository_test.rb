@@ -45,15 +45,6 @@ class CustomerRepositoryTest < Minitest::Spec
 		assert_equal @customer_repository.find_by_first_name("Joey").object_id, result
 	end
 
-	def test_it_can_find_a_customer_by_its_first_name_case_insensitive
-		result = @customer_repository.customers[0].object_id
-		assert_equal @customer_repository.find_by_first_name("joEY").object_id, result
-	end
-
-	def test_it_will_return_nil_if_name_is_not_the_full_name
-		assert_equal @customer_repository.find_by_first_name("Yo Yo Ma"), nil
-	end
-
 	def test_it_can_find_a_customer_by_last_name
 		result = @customer_repository.customers[0].object_id
 		assert_equal @customer_repository.find_by_last_name("Ondricka").object_id, result
