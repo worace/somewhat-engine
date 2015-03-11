@@ -37,10 +37,6 @@ class Invoice
     @items_result.uniq
   end
 
-  def get_invoice_items_for_self
-    invoice_item_repo.find_all_by_invoice_id(id)
-  end
-
   def customer
     customer_repo.find_by_id(customer_id)
   end
@@ -73,6 +69,10 @@ class Invoice
 
   def customer_repo
     sales_engine.customer_repository
+  end
+
+  def get_invoice_items_for_self
+    invoice_item_repo.find_all_by_invoice_id(id)
   end
 
 end

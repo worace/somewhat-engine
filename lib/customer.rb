@@ -12,8 +12,8 @@ class Customer
     @id         = data[:id].to_i
     @first_name = data[:first_name]
     @last_name  = data[:last_name]
-    @created_at = data[:created_at]
-    @updated_at = data[:updated_at]
+    @created_at = Date.parse(data[:created_at])
+    @updated_at = Date.parse(data[:updated_at])
   end
 
   def favorite_merchant
@@ -30,18 +30,6 @@ class Customer
   def transactions
     @transactions ||= transaction_repo.transactions.select do |entry|
       find_any_invoices(entry)
-    end
-  end
-
-  def successful_transactions
-    @successful_transactions ||= transactions.select do |entry|
-      entry.result == "success"
-    end
-  end
-
-  def invoices_with_successful_transactions
-    @invoices_with_successful_transactions ||= invoices.select do |invoice|
-      find_any_successful_transactions(invoice)
     end
   end
 
@@ -65,6 +53,18 @@ class Customer
 
   def find_any_invoices(transaction)
     invoices.any? { |invoice| invoice.id == transaction.invoice_id }
+  end
+
+  def successful_transactions
+    @successful_transactions ||= transactions.select do |entry|
+      entry.result == "success"
+    end
+  end
+
+  def invoices_with_successful_transactions
+    @invoices_with_successful_transactions ||= invoices.select do |invoice|
+      find_any_successful_transactions(invoice)
+    end
   end
 
   def find_any_successful_transactions(invoice)

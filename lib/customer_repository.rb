@@ -9,7 +9,7 @@ class CustomerRepository
   end
 
   def inspect
-    "#<#{self.class} #{merchants.size} rows>"
+    "#<#{self.class} #{customers.size} rows>"
   end
 
   def all
@@ -33,11 +33,11 @@ class CustomerRepository
   end
 
   def find_by_created_at(date)
-      customers.find { |data| data.created_at.downcase == date.downcase }
+      customers.find { |data| data.created_at == date }
   end
 
   def find_by_updated_at(date)
-      customers.find { |data| data.updated_at.downcase == date.downcase }
+      customers.find { |data| data.updated_at == date }
   end
 
   def find_all_by_id(id)
@@ -53,11 +53,11 @@ class CustomerRepository
   end
 
   def find_all_by_created_at(date)
-      customers.find_all { |data| data.created_at.downcase == date.downcase }
+      customers.find_all { |data| data.created_at == date }
   end
 
   def find_all_by_updated_at(date)
-      customers.find_all { |data| data.updated_at.downcase == date.downcase }
+      customers.find_all { |data| data.updated_at == date }
   end
 
 end
