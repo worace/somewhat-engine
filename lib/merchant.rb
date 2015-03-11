@@ -38,12 +38,17 @@ class Merchant
     sum_revenue(sum, successful_invoice_items)
   end
 
-  def revenue_with_date(sum, date)
-    success_invoices = invoice_items_with_successful_transactions_by_date(date)
-    invoice_items_for_date = successful_invoice_items.select do |invoice_item|
-      find_invoices_for_date(success_invoices, invoice_item)
-    end
-    sum_revenue(sum, invoice_items_for_date)
+  def revenue_with_date(sum, dates)
+    date_range =* (dates)
+    total_sum = BigDecimal.new(0)
+    date_range.each do |date|
+      success_invoices = invoice_items_with_successful_transactions_by_date(date)
+      invoice_items_for_date = successful_invoice_items.select do |invoice_item|
+        find_invoices_for_date(success_invoices, invoice_item)
+      end
+      total_sum += sum_revenue(sum, invoice_items_for_date)
+    end   
+    total_sum 
   end
 
   def favorite_customer

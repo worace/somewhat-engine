@@ -25,7 +25,7 @@ class InvoiceRepository
   end
 
   def create_invoice_items(data, invoice_id)
-    invoice_item_repository.create(data, invoice_id)
+    invoice_item_repo.create(data, invoice_id)
   end
 
   def all
@@ -84,9 +84,48 @@ class InvoiceRepository
     invoices.find_all { |data| data.updated_at == date }
   end
 
+  def find_dates_for_successful_invoices
+    successful_transactions
+    successful_invoices
+    map_dates_for_invoices
+  end
+
+  def find_range_of_dates_for_invoices(date_range)
+    invoice_dates = find_dates_for_successful_invoices
+    new_dates = date_range.select do |date|
+      invoice_dates.any? do |invoice_date|
+        invoice_date == date
+      end
+    end
+  end
+
   private
 
-  def invoice_item_repository
+  def successful_transactions
+    @transactions_result ||= transaction_repo.transactions.select do |entry|
+      entry.result == "success"
+    end
+  end
+
+  def successful_invoices
+    @invoices_result ||= invoices.select do |invoice|
+      successful_transactions.any? do |entry|
+        entry.invoice_id == invoice.id
+      end
+    end
+  end
+
+  def map_dates_for_invoices
+    @dates_result ||= successful_invoices.map do |invoice|
+      invoice.created_at
+    end
+  end
+
+  def transaction_repo
+    parent_engine.transaction_repository
+  end
+
+  def invoice_item_repo
     parent_engine.invoice_item_repository
   end
 
