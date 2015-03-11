@@ -1,5 +1,3 @@
-require_relative './customer'
-
 class CustomerRepository
 
   attr_accessor :customers,

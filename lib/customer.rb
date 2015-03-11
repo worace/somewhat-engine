@@ -20,22 +20,22 @@ class Customer
     invoice_count = invoices_with_successful_transactions.map do |invoice|
       count_merchant_invoices(invoice)
     end
-    merchant_repository.find_by_id(invoice_count.max[1])
+    merchant_repo.find_by_id(invoice_count.max[1])
   end
 
   def invoices
-    @invoices ||= invoice_repository.find_all_by_customer_id(id)
+    @invoices ||= invoice_repo.find_all_by_customer_id(id)
   end
 
   def transactions
-    @transactions ||= transaction_repository.transactions.select do |transaction|
-      find_any_invoices(transaction)
+    @transactions ||= transaction_repo.transactions.select do |entry|
+      find_any_invoices(entry)
     end
   end
 
   def successful_transactions
-    @successful_transactions ||= transactions.select do |transaction|
-      transaction.result == "success"
+    @successful_transactions ||= transactions.select do |entry|
+      entry.result == "success"
     end
   end
 
@@ -43,7 +43,7 @@ class Customer
     @invoices_with_successful_transactions ||= invoices.select do |invoice|
       find_any_successful_transactions(invoice)
     end
-  end 
+  end
 
   private
 
@@ -51,15 +51,15 @@ class Customer
     repository.parent_engine
   end
 
-  def invoice_repository
+  def invoice_repo
     sales_engine.invoice_repository
   end
 
-  def merchant_repository
+  def merchant_repo
     sales_engine.merchant_repository
   end
 
-  def transaction_repository
+  def transaction_repo
     sales_engine.transaction_repository
   end
 
@@ -74,7 +74,7 @@ class Customer
   end
 
   def count_merchant_invoices(invoice)
-    count = invoices_with_successful_transactions.count do |successful_invoice| 
+    count = invoices_with_successful_transactions.count do |successful_invoice|
       successful_invoice == invoice
     end
     [count, invoice.merchant_id]

@@ -1,7 +1,3 @@
-require_relative './item'
-require 'bigdecimal/util'
-require 'bigdecimal'
-
 class ItemRepository
 
   attr_accessor :items,
@@ -86,7 +82,7 @@ class ItemRepository
     sorted_items = sort_totals(number_sold)
     sorted_items[0..(top_x-1)].map { |item| item[1] }
   end
-  
+
   def most_revenue(top_x)
     items_revenue = find_item_revenue
     sorted_revenue = sort_totals(items_revenue)
@@ -104,7 +100,7 @@ class ItemRepository
   end
 
   def sort_totals(totals)
-    totals.sort do |item_1,item_2| 
+    totals.sort do |item_1,item_2|
       item_2.first <=> item_1.first
     end
   end

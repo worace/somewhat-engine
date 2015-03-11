@@ -1,7 +1,3 @@
-require_relative './merchant'
-require 'bigdecimal/util'
-require 'bigdecimal'
-
 class MerchantRepository
 
   attr_accessor :merchants,
@@ -36,7 +32,7 @@ class MerchantRepository
       merchants.find { |data| data.created_at.downcase == date.downcase }
   end
 
-  def find_by_updated_at(date)    
+  def find_by_updated_at(date)
       merchants.find { |data| data.updated_at.downcase == date.downcase }
   end
 
@@ -91,7 +87,7 @@ class MerchantRepository
   end
 
   def sort_totals(totals)
-    totals.sort do |item_1,item_2| 
+    totals.sort do |item_1,item_2|
       item_2.first <=> item_1.first
     end
   end

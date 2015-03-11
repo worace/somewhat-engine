@@ -1,5 +1,3 @@
-require 'date'
-
 class Transaction
 
   attr_accessor :repository,
@@ -23,7 +21,17 @@ class Transaction
   end
 
   def invoice
-    repository.parent_engine.invoice_repository.find_by_id(invoice_id)
+    invoice_repository.find_by_id(invoice_id)
+  end
+
+  private
+
+  def sales_engine
+    repository.parent_engine
+  end
+
+  def invoice_repository
+    sales_engine.invoice_repository
   end
 
 end

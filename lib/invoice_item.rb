@@ -1,7 +1,3 @@
-require 'bigdecimal/util'
-require 'bigdecimal'
-require 'date'
-
 class InvoiceItem
 
   attr_accessor :repository,
@@ -32,7 +28,7 @@ class InvoiceItem
     item_repository.find_by_id(item_id)
   end
 
-  private 
+  private
 
   def sales_engine
     repository.parent_engine

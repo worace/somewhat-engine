@@ -1,5 +1,3 @@
-require_relative './invoice_item'
-
 class InvoiceItemRepository
 
   attr_accessor :invoice_items,
@@ -16,7 +14,7 @@ class InvoiceItemRepository
 
   def create(data,invoice_id)
     items = count_items(data)
-    items.each do |new_item| 
+    items.each do |new_item|
       invoice_items << add_invoice_item(new_item,invoice_id)
     end
   end
@@ -39,7 +37,7 @@ class InvoiceItemRepository
     invoice_items.find { |data| data.id == id }
   end
 
-  def find_by_item_id(id)  
+  def find_by_item_id(id)
     invoice_items.find { |data| data.item_id == id }
   end
 
@@ -79,7 +77,7 @@ class InvoiceItemRepository
     invoice_items.find_all { |data| data.quantity == quantity }
   end
 
-  def find_all_by_unit_price(price)  
+  def find_all_by_unit_price(price)
     invoice_items.find_all { |data| data.unit_price == price }
   end
 

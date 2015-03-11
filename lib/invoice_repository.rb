@@ -1,5 +1,3 @@
-require_relative './invoice'
-
 class InvoiceRepository
 
   attr_accessor :invoices,

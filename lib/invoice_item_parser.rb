@@ -1,12 +1,9 @@
-require_relative './invoice_item'
-require 'csv'
-
 class InvoiceItemParser
 
-  attr_accessor :invoice_item_data
+  attr_accessor :invoice_items
 
   def initialize(file_path)
-    @invoice_item_data = CSV.open(file_path,
+    @invoice_items = CSV.open(file_path,
                                   headers: true,
                                   header_converters: :symbol
                                   )

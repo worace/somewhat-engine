@@ -1,7 +1,4 @@
-require 'minitest'
-require 'minitest/pride'
-require 'minitest/autorun'
-require_relative '../lib/invoice_items_parser'
+require_relative './test_helper'
 
 class InvoiceItemsParserTest < Minitest::Test 
 
@@ -12,9 +9,9 @@ class InvoiceItemsParserTest < Minitest::Test
     assert_equal CSV, result
   end
 
-  def test_it_responds_to_printing_out_data
+  def test_it_responds_to_invoice_items
     invoice_items_parser = InvoiceItemsParser.new
-    assert invoice_items_parser.respond_to?(:print_out_all_data_from_csv_file)
+    assert invoice_items_parser.respond_to?(:invoice_items)
   end
 
 end
