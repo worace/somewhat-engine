@@ -9,7 +9,6 @@ class IntegrationTest < Minitest::Spec
       @@engine.startup
       @@flag = true
     end
-    @item = @@engine.invoice_item_repository.random
   end 
 
   def test_a_merchant_can_retrieve_an_array_of_associated_items

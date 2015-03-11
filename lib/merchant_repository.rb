@@ -29,11 +29,11 @@ class MerchantRepository
   end
 
   def find_by_created_at(date)
-      merchants.find { |data| data.created_at.downcase == date.downcase }
+      merchants.find { |data| data.created_at == date }
   end
 
   def find_by_updated_at(date)
-      merchants.find { |data| data.updated_at.downcase == date.downcase }
+      merchants.find { |data| data.updated_at == date }
   end
 
   def find_all_by_id(id)
@@ -45,11 +45,11 @@ class MerchantRepository
   end
 
   def find_all_by_created_at(date)
-      merchants.find_all { |data| data.created_at.downcase == date.downcase }
+      merchants.find_all { |data| data.created_at == date }
   end
 
   def find_all_by_updated_at(date)
-      merchants.find_all { |data| data.updated_at.downcase == date.downcase }
+      merchants.find_all { |data| data.updated_at == date }
   end
 
   def revenue(date)

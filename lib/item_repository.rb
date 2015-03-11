@@ -9,7 +9,7 @@ class ItemRepository
   end
 
   def inspect
-    "#<#{self.class} #{merchants.size} rows>"
+    "#<#{self.class} #{items.size} rows>"
   end
 
   def all
@@ -42,11 +42,11 @@ class ItemRepository
   end
 
   def find_by_created_at(date)
-    items.find { |data| data.created_at.downcase == date.downcase }
+    items.find { |data| data.created_at == date }
   end
 
   def find_by_updated_at(date)
-    items.find { |data| data.updated_at.downcase == date.downcase }
+    items.find { |data| data.updated_at == date }
   end
 
   def find_all_by_id(id)
@@ -70,11 +70,11 @@ class ItemRepository
   end
 
   def find_all_by_created_at(date)
-    items.find_all { |data| data.created_at.downcase == date.downcase }
+    items.find_all { |data| data.created_at == date }
   end
 
   def find_all_by_updated_at(date)
-    items.find_all { |data| data.updated_at.downcase == date.downcase }
+    items.find_all { |data| data.updated_at == date }
   end
 
   def most_items(top_x)

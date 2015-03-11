@@ -9,7 +9,7 @@ class InvoiceTest < Minitest::Spec
       @@engine.startup
       @@flag = true
     end
-    @invoice = @@engine.invoice_repository.random
+    @invoice = @@engine.invoice_repository.find_by_id(4379)
   end 
   
   def test_it_has_an_invoice_repository

@@ -9,7 +9,7 @@ class CustomerTest < Minitest::Spec
       @@engine.startup
       @@flag = true
     end
-    @customer = @@engine.customer_repository.random
+    @customer = @@engine.customer_repository.find_by_id(157)
   end 
 
   def test_it_has_a_customer_repository

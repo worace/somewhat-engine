@@ -10,7 +10,7 @@ class InvoiceRepositoryTest < Minitest::Spec
       @@flag = true
     end
     @repo = @@engine.invoice_repository
-    @invoice = @repo.random
+    @invoice = @repo.find_by_id(2198)
   end 
 
   def test_the_repository_has_a_sales_engine

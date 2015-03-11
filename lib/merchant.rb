@@ -28,7 +28,6 @@ class Merchant
     @invoices_results ||= invoice_repo.find_all_by_merchant_id(id)
   end
 
-
   def revenue(date = nil)
     sum = BigDecimal.new(0)
     successful_invoice_items
@@ -45,13 +44,6 @@ class Merchant
       find_invoices_for_date(success_invoices, invoice_item)
     end
     sum_revenue(sum, invoice_items_for_date)
-  end
-
-  def sum_revenue(sum,invoice_items)
-    invoice_items.each do |item|
-      sum += (item.quantity * BigDecimal.new(item.unit_price))
-    end
-    sum
   end
 
   def favorite_customer
@@ -121,6 +113,13 @@ class Merchant
       success_invoice.customer_id == invoice.customer_id
     end
     [count, invoice.customer_id]
+  end
+
+  def sum_revenue(sum,invoice_items)
+    invoice_items.each do |item|
+      sum += (item.quantity * BigDecimal.new(item.unit_price))
+    end
+    sum
   end
 
   def unsuccessful_invoices
