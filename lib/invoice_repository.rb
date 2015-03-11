@@ -9,7 +9,7 @@ class InvoiceRepository
   end
 
   def inspect
-    "#<#{self.class} #{merchants.size} rows>"
+    "#<#{self.class} #{invoices.size} rows>"
   end
 
   def create(data)
@@ -53,11 +53,11 @@ class InvoiceRepository
   end
 
   def find_by_created_at(date)
-    invoices.find { |data| data.created_at.downcase == date.downcase }
+    invoices.find { |data| data.created_at == date }
   end
 
   def find_by_updated_at(date)
-    invoices.find { |data| data.updated_at.downcase == date.downcase }
+    invoices.find { |data| data.updated_at == date }
   end
 
   def find_all_by_id(id)
@@ -77,11 +77,11 @@ class InvoiceRepository
   end
 
   def find_all_by_created_at(date)
-    invoices.find_all { |data| data.created_at.downcase == date.downcase }
+    invoices.find_all { |data| data.created_at == date }
   end
 
   def find_all_by_updated_at(date)
-    invoices.find_all { |data| data.updated_at.downcase == date.downcase }
+    invoices.find_all { |data| data.updated_at == date }
   end
 
   private
