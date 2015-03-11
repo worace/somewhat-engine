@@ -69,8 +69,8 @@ class TransactionRepository
     transactions.find_all {|data| data.credit_card_expiration_date == date}
   end
 
-  def find_all_by_result(match)
-    transactions.find_all {|data| data.result == match}
+  def find_all_by_result(result)
+    transactions.find_all {|data| data.result == result}
   end
 
   def find_all_by_created_at(date)
