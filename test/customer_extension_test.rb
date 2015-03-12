@@ -15,7 +15,9 @@ class CustomerExtensionTest < Minitest::Spec
 
   def test_it_can_find_days_between_activity
     result = @customer.days_since_activity
-    assert_equal 1080, result
+    date = @@engine.transaction_repository.transactions[0].created_at
+    days_since = (Date.today.mjd - date.mjd) + 1
+    assert_equal days_since, result
   end
 
   def test_it_returns_the_customers_invoices
