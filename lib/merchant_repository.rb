@@ -74,7 +74,7 @@ class MerchantRepository
 
   def dates_by_revenue(top_x = nil)
     dates = invoice_repo.find_dates_for_successful_invoices.uniq
-    revenue_by_date = find_revenue_by_date(dates) 
+    revenue_by_date = find_revenue_by_date(dates)
     sorted_revenue_by_date = sort_totals(revenue_by_date)
     return_dates_by_revenue(top_x, sorted_revenue_by_date)
   end
@@ -87,16 +87,16 @@ class MerchantRepository
 
   def return_dates_by_revenue(top_x, sorted_revenue_by_date)
     if top_x == nil
-      sorted_revenue_by_date.map { |element| element[1] } 
+      sorted_revenue_by_date.map { |element| element[1] }
     else
-      sorted_revenue_by_date[0..top_x-1].map { |element| element[1] } 
+      sorted_revenue_by_date[0..top_x-1].map { |element| element[1] }
     end
   end
 
 
   def find_revenue_by_date(dates)
     date_revenue = dates.map do |date|
-      [revenue(date), date]  
+      [revenue(date), date]
     end
   end
 

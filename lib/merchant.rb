@@ -44,8 +44,8 @@ class Merchant
     date_range.each do |date|
       invoice_item_revenue = sum_invoices_for_date_range(date)
       total_sum += sum_revenue(sum, invoice_item_revenue)
-    end   
-    total_sum 
+    end
+    total_sum
   end
 
   def favorite_customer
@@ -80,10 +80,6 @@ class Merchant
 
   def invoice_item_repo
     sales_engine.invoice_item_repository
-  end
-
-  def merchant_repo
-    sales_engine.merchant_repository
   end
 
   def transaction_repo
@@ -130,7 +126,7 @@ class Merchant
     end
     [count, invoice.customer_id]
   end
-  
+
   def transactions
     @transactions_results ||= transaction_repo.transactions.select do |entry|
       invoices.any? { |invoice| invoice.id == entry.invoice_id }

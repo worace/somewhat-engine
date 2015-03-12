@@ -36,23 +36,6 @@ class MerchantExtensionTest < Minitest::Spec
     assert_equal 22, result
   end
 
-  def test_it_can_find_revenue_by_date
-    skip
-    dates = @invoice_repo.find_dates_for_successful_invoices.uniq
-    date_revenue = @merchant_repo.find_revenue_by_date(dates)
-    assert_equal BigDecimal, date_revenue[0][0].class
-    assert_equal Date, date_revenue[0][1].class
-    assert_equal 22, date_revenue.size
-  end
-
-  def test_it_can_sort_by_date
-    skip
-    dates = @invoice_repo.find_dates_for_successful_invoices.uniq
-    date_revenue = @merchant_repo.find_revenue_by_date(dates)
-    sorted = @merchant_repo.sort_totals(date_revenue)
-    assert_equal Date.parse("2012-03-09"), sorted[0][1] 
-  end
-
   def test_it_returns_the_date_for_top_sales
     result = @merchant_repo.dates_by_revenue
     assert_equal Date.parse("2012-03-09"), result[0] 
@@ -63,12 +46,12 @@ class MerchantExtensionTest < Minitest::Spec
     assert_equal 5, result.size 
   end
 
-  # def test_it_returns_sorted_dates
-  #   date1 = Date.parse("2012-03-14")
-  #   date2 = Date.parse("2012-03-16")
-  #   dates = (date1..date2)
-  #   result = @invoice_repo.find_range_of_dates_for_invoices(dates)
-  #   assert_equal 3, result.uniq.size
-  # end
+  def test_it_can_take_a_range_of_dates_for_revenue
+    date_1 = Date.parse("2012-03-01")
+    date_2 = Date.parse("2012-03-07")
+    dates = (date_1..date_2)
+    result = @merchant_repo.revenue(dates)
+    assert_equal BigDecimal.new("3697159.78"), result
+  end   
 
 end

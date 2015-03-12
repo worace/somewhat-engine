@@ -80,8 +80,8 @@ class Customer
   end
 
   def invoice_items
-    @invoice_items_result ||= invoice_item_repo.invoice_items.select do |invoice_item|
-      invoices.any? { |invoice| invoice.id == invoice_item.invoice_id }
+    @invoice_items_result ||= invoice_item_repo.invoice_items.select do |ii|
+      invoices.any? { |invoice| invoice.id == ii.invoice_id }
     end
   end
 

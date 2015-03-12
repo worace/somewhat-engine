@@ -90,15 +90,6 @@ class InvoiceRepository
     map_dates_for_invoices
   end
 
-  def find_range_of_dates_for_invoices(date_range)
-    invoice_dates = find_dates_for_successful_invoices
-    new_dates = date_range.select do |date|
-      invoice_dates.any? do |invoice_date|
-        invoice_date == date
-      end
-    end
-  end
-
   private
 
   def successful_transactions

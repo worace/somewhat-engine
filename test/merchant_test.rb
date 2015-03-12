@@ -83,11 +83,6 @@ class MerchantTest < Minitest::Spec
   	merchant = @@engine.merchant_repository.merchants[50]
   	result = merchant.sum_items
   	assert_equal 1085, result
-  end 
-
-  def test_it_can_find_unsuccessful_invoices_and_items_PRIVATE_METHOD
-  	result = @merchant.send(:unsuccessful_invoice_items)
-  	assert_equal InvoiceItem, result[0].class
   end
 
 end
