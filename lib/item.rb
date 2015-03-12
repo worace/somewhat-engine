@@ -76,28 +76,28 @@ class Item
     [count, invoice.created_at]
   end
 
-  def successful_invoices
-    invoice_items
-    invoices
-    transactions
-    successful_transactions
-    invoices_with_successful_transactions
-  end
+  # def successful_invoices
+  #   invoice_items
+  #   invoices
+  #   transactions
+  #   successful_transactions
+  #   successful_invoices
+  # end
+
+  # def successful_invoice_items
+  #   successful_invoices
+  #   successful_invoice_items
+  # end
 
   def successful_invoice_items
-    successful_invoices
-    invoice_items_with_successful_transactions
-  end
-
-  def invoice_items_with_successful_transactions
     @successful_invoice_items_result ||= invoice_items.select do |invoice_item|
-      invoices_with_successful_transactions.any? do |invoice|
+      successful_invoices.any? do |invoice|
         invoice.id == invoice_item.invoice_id
       end
     end
   end
 
-  def invoices_with_successful_transactions
+  def successful_invoices
     @successful_invoices_result ||= invoices.select do |invoice|
       successful_transactions.any? do |entry|
         entry.invoice_id == invoice.id

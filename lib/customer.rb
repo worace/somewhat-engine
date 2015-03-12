@@ -17,10 +17,10 @@ class Customer
   end
 
   def favorite_merchant
-    @invoice_count ||= invoices_with_successful_transactions.map do |invoice|
+    @invoice_count ||= successful_invoices.map do |invoice|
       count_merchant_invoices(invoice)
     end
-    merchant_repo.find_by_id(invoice_count.max[1])
+    merchant_repo.find_by_id(@invoice_count.max[1])
   end
 
   def invoices
@@ -51,6 +51,12 @@ class Customer
     end
   end
 
+  def days_since_activity
+    last_date = transactions.map { |entry| entry.created_at }.uniq.sort
+    today = Date.today
+    (today.mjd - last_date[0].mjd)+1
+  end
+
   private
 
   def sales_engine
@@ -73,26 +79,13 @@ class Customer
     sales_engine.transaction_repository
   end
 
-  def successful_invoices
-    invoices
-    invoice_items
-    transactions
-    successful_transactions
-    invoices_with_successful_transactions
-  end
-
-  def successful_invoice_items
-    successful_invoices
-    invoice_items_with_successful_transactions
-  end
-
   def invoice_items
     @invoice_items_result ||= invoice_item_repo.invoice_items.select do |invoice_item|
       invoices.any? { |invoice| invoice.id == invoice_item.invoice_id }
     end
   end
 
-  def invoice_items_with_successful_transactions
+  def successful_invoice_items
     @successful_invoice_items_result ||= invoice_items.select do |invoice_item|
       successful_invoices.any? do |invoice|
         invoice.id == invoice_item.invoice_id
@@ -110,8 +103,8 @@ class Customer
     end
   end
 
-  def invoices_with_successful_transactions
-    @invoices_with_successful_transactions = invoices.select do |invoice|
+  def successful_invoices
+    @successful_invoices = invoices.select do |invoice|
       find_any_successful_transactions(invoice)
     end
   end
@@ -123,7 +116,7 @@ class Customer
   end
 
   def count_merchant_invoices(invoice)
-    count = invoices_with_successful_transactions.count do |successful_invoice|
+    count = successful_invoices.count do |successful_invoice|
       successful_invoice == invoice
     end
     [count, invoice.merchant_id]

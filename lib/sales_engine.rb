@@ -58,26 +58,3 @@ class SalesEngine
   end
 
 end
-
-
-
-if __FILE__ == $0
-
-engine = SalesEngine.new("./data")
-engine.startup
-
-# merchant = engine.merchant_repository.merchants.find_by_customer_id(2)
-
-customer_1 = engine.customer_repository.find_by_id(2)
-customer_2 = engine.customer_repository.find_by_id(112)
-
-print customer_1.pending_invoices
-
-puts "\n"
-
-puts customer_2.pending_invoices.size
-puts customer_2.pending_invoices.class
-puts customer_2.pending_invoices[0].class
-
-
-end
