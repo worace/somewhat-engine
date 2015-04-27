@@ -11,7 +11,7 @@ class InvoiceRepositoryTest < Minitest::Spec
     end
     @repo = @@engine.invoice_repository
     @invoice = @repo.find_by_id(2198)
-  end 
+  end
 
   def test_the_repository_has_a_sales_engine
     assert_equal SalesEngine, @repo.parent_engine.class
@@ -80,27 +80,6 @@ class InvoiceRepositoryTest < Minitest::Spec
 
   def test_it_can_find_all_by_updated_at
     assert @repo.find_all_by_updated_at(@invoice.updated_at).size > 1
-  end
-
-  def test_it_can_create_an_invoice
-    customer = @@engine.customer_repository.random
-    merchant = @@engine.merchant_repository.random
-    item = @@engine.item_repository.random
-    items = [item, item, item]
-    result = @repo.invoices.size
-    @repo.create(customer: customer, merchant: merchant, items: items)
-    assert_equal (@repo.invoices.size), result+1
-  end
-
-  def test_it_can_create_invoice_items
-    customer = @@engine.customer_repository.random
-    merchant = @@engine.merchant_repository.random
-    item_1 = @@engine.item_repository.random
-    item_2 = @@engine.item_repository.random
-    items = [item_1, item_2, item_1]
-    result = @@engine.invoice_item_repository.invoice_items.size
-    @repo.create(customer: customer, merchant: merchant, items: items)
-    assert_equal (@@engine.invoice_item_repository.invoice_items.size), result+2
   end
 
 end

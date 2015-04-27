@@ -10,7 +10,7 @@ class MerchantRepositoryTest < Minitest::Spec
       @@flag = true
     end
     @repo = @@engine.merchant_repository
-  end 
+  end
 
 	def test_it_creates_an_array_of_objects
 		result = @repo.merchants.class
@@ -113,24 +113,4 @@ class MerchantRepositoryTest < Minitest::Spec
 	def test_it_returns_a_blank_array_if_no_matches_by_updated_at
 		assert_equal @repo.find_all_by_updated_at(Date.parse("2010-03-27 14:53:59 UTC")), []
 	end
-
-	def test_it_returns_revenue_in_BigDecimal
-		date = Date.parse("2012-03-27")
-		result = @repo.revenue(date)
-		assert_equal BigDecimal, result.class
-		assert_equal BigDecimal.new("1908368.05"), result
-	end
-
-	def test_it_returns_top_x_merchants_by_revenue
-		result = @repo.most_revenue(5)
-		assert_equal 5, result.size
-		assert_equal "Bechtelar, Jones and Stokes", result[3].name 
-	end
-
-	def test_it_returns_top_x_merchants_by_items_sold
-		result = @repo.most_items(5)
-		assert_equal 5, result.size
-		assert_equal "Okuneva, Prohaska and Rolfson", result[3].name 
-	end
-
 end

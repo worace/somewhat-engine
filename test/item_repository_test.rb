@@ -130,7 +130,6 @@ class ItemRepositoryTest < Minitest::Spec
   end
 
   def test_it_can_find_all_items_by_unit_price
-    result = @item_repository.items[0].object_id
     assert_equal 2, @item_repository.find_all_by_unit_price(BigDecimal.new("751.07")).size
   end
 
@@ -160,18 +159,6 @@ class ItemRepositoryTest < Minitest::Spec
 
   def test_it_returns_a_blank_array_if_no_matches_by_updated_at
     assert_equal @item_repository.find_all_by_updated_at(Date.parse("2010-03-27 14:54:10 UTC")), []
-  end
-
-  def test_it_can_return_top_x_items
-    result = @item_repository.most_items(5)
-    assert_equal 5, result.size
-    assert_equal "Item Delectus Saepe", result[2].name 
-  end
-
-  def test_it_can_return_top_x_items_by_revenue
-    result = @item_repository.most_revenue(5)
-    assert_equal 5, result.size
-    assert_equal "Item Aut Vero", result[2].name
   end
 
 end

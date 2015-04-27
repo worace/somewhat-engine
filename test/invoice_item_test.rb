@@ -10,7 +10,7 @@ class InvoiceItemsTest < Minitest::Spec
       @@flag = true
     end
     @item = @@engine.invoice_item_repository.find_by_id(10029)
-  end 
+  end
 
   def test_invoice_item_has_an_id
     assert_equal Fixnum, @item.id.class
@@ -47,11 +47,6 @@ class InvoiceItemsTest < Minitest::Spec
   def test_invoice_method_can_find_invoice_of_invoice_itme
     result = @item.invoice
     assert_equal @item.invoice_id, result.id
-  end
-
-  def test_item_method_can_find_item_of_invoice_itme
-    result = @item.item
-    assert_equal @item.item_id, result.id
   end
 
 end

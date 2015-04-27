@@ -1,5 +1,4 @@
-class Item
-
+class Item 
   attr_accessor :repository,
                 :id,
                 :name,
@@ -24,27 +23,8 @@ class Item
     merchant_repo.find_by_id(merchant_id)
   end
 
-  def best_day
-    best_day = successful_invoices.map do |invoice|
-      count_invoices(invoice)
-    end
-    best_day.uniq.uniq.max[1]
-  end
-
-  def items_sold
-    successful_invoice_items.reduce(0) do |sum, item|
-      sum += item.quantity
-    end
-  end
-
-   def items_revenue
-    successful_invoice_items.reduce(0) do |sum, item|
-      sum += (item.quantity * item.unit_price)
-    end
-  end
-
   def invoice_items
-    @invoice_items_result ||= invoice_item_repo.find_all_by_item_id(id)
+    invoice_item_repo.find_all_by_item_id(id)
   end
 
   private
@@ -76,21 +56,8 @@ class Item
     [count, invoice.created_at]
   end
 
-  # def successful_invoices
-  #   invoice_items
-  #   invoices
-  #   transactions
-  #   successful_transactions
-  #   successful_invoices
-  # end
-
-  # def successful_invoice_items
-  #   successful_invoices
-  #   successful_invoice_items
-  # end
-
   def successful_invoice_items
-    @successful_invoice_items_result ||= invoice_items.select do |invoice_item|
+    invoice_items.select do |invoice_item|
       successful_invoices.any? do |invoice|
         invoice.id == invoice_item.invoice_id
       end
@@ -98,7 +65,7 @@ class Item
   end
 
   def successful_invoices
-    @successful_invoices_result ||= invoices.select do |invoice|
+    invoices.select do |invoice|
       successful_transactions.any? do |entry|
         entry.invoice_id == invoice.id
       end
@@ -106,19 +73,19 @@ class Item
   end
 
   def successful_transactions
-    @successful_transactions_result ||= transactions.select do |entry|
+    transactions.select do |entry|
       entry.result == "success"
     end
   end
 
   def transactions
-    @transactions_result ||= transaction_repo.transactions.select do |entry|
+    transaction_repo.transactions.select do |entry|
       invoices.any? { |invoice| invoice.id == entry.invoice_id }
     end
   end
 
   def invoices
-    @invoices_result ||= invoice_repo.invoices.select do |invoice|
+    invoice_repo.invoices.select do |invoice|
       invoice_items.any? do |invoice_item|
         invoice_item.invoice_id == invoice.id
       end

@@ -42,7 +42,7 @@ class InvoiceItemRepositoryTest < Minitest::Spec
   end
 
   def test_it_will_return_nil_if_id_does_not_exist
-    assert_equal @invoice_item_repository.find_by_id(100000), nil 
+    assert_equal @invoice_item_repository.find_by_id(100000), nil
   end
 
   def test_it_can_find_a_item_by_invoice_id
@@ -97,15 +97,4 @@ class InvoiceItemRepositoryTest < Minitest::Spec
   def test_it_can_find_all_items_by_updated_at
     assert_equal 21687, @invoice_item_repository.find_all_by_updated_at(Date.parse("2012-03-27 14:53:59 UTC")).size
   end
-
-  def test_it_sums_an_array_of_items
-    item_1 = @@engine.item_repository.items[10] 
-    item_2 = @@engine.item_repository.items[20]
-    item_3 = item_1
-    items = [item_1, item_2, item_3]
-    result = @invoice_item_repository.sum_items(items)
-    assert_equal 2, result.uniq.size
-    assert_equal Item, result[0][1].class 
-  end
- 
 end

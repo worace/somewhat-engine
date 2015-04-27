@@ -55,19 +55,4 @@ class ItemTest < Minitest::Spec
     assert_equal InvoiceItem, result[0].class
   end
 
-  def test_it_can_calculate_its_best_day
-    result = @item.best_day
-    assert_equal Date.parse("2012-03-27"), result
-  end
-
-  def test_it_can_find_total_items_sold
-    result = @item.items_sold 
-    assert_equal 27, result
-  end
-
-  def test_it_can_find_total_revenue
-    result = @item.items_revenue
-    assert_equal BigDecimal.new("8853.57"), result
-  end
-
 end

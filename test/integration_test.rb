@@ -9,7 +9,7 @@ class IntegrationTest < Minitest::Spec
       @@engine.startup
       @@flag = true
     end
-  end 
+  end
 
   def test_a_merchant_can_retrieve_an_array_of_associated_items
     merchant = @@engine.merchant_repository.merchants[0]
@@ -64,8 +64,8 @@ class IntegrationTest < Minitest::Spec
   def test_an_item_can_retrieve_a_collection_of_asociated_invoice_items
     item = @@engine.item_repository.items[0]
     assert_equal 24,item.invoice_items.size
-    assert_equal Array,item.invoice_items.class 
-  end    
+    assert_equal Array,item.invoice_items.class
+  end
 
   def test_an_item_can_retrieve_an_instance_of_associated_merchant
     item = @@engine.item_repository.items[0]
@@ -75,11 +75,11 @@ class IntegrationTest < Minitest::Spec
   def test_a_transaction_can_retrieve_an_instance_of_associated_invoice
     transaction = @@engine.transaction_repository.transactions[0]
     assert_equal Invoice,transaction.invoice.class
-  end    
+  end
 
   def test_a_customer_can_retrieve_an_instance_of_associated_invoice
     customer = @@engine.customer_repository.customers[0]
     assert_equal Invoice,customer.invoices[0].class
-  end  
+  end
 
 end

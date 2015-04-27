@@ -16,45 +16,14 @@ class Customer
     @updated_at = Date.parse(data[:updated_at])
   end
 
-  def favorite_merchant
-    @invoice_count ||= successful_invoices.map do |invoice|
-      count_merchant_invoices(invoice)
-    end
-    merchant_repo.find_by_id(@invoice_count.max[1])
-  end
-
   def invoices
-    @invoices ||= invoice_repo.find_all_by_customer_id(id)
+    invoice_repo.find_all_by_customer_id(id)
   end
 
   def transactions
-    @transactions ||= transaction_repo.transactions.select do |entry|
+    transaction_repo.transactions.select do |entry|
       find_any_invoices(entry)
     end
-  end
-
-  def revenue
-    sum = BigDecimal.new(0)
-    successful_invoices
-    sum_revenue(sum, successful_invoice_items)
-  end
-
-  def sum_items
-    successful_invoice_items.reduce(0) do |sum, invoice_item|
-      sum += invoice_item.quantity
-    end
-  end
-
-  def pending_invoices
-    pending_invoices = invoices.select do |invoice|
-      invoice.transactions.any? { |transaction| transaction.result == 'failed' }
-    end
-  end
-
-  def days_since_activity
-    last_date = transactions.map { |entry| entry.created_at }.uniq.sort
-    today = Date.today
-    (today.mjd - last_date[0].mjd)+1
   end
 
   private
@@ -80,7 +49,7 @@ class Customer
   end
 
   def invoice_items
-    @invoice_items_result ||= invoice_item_repo.invoice_items.select do |ii|
+    invoice_item_repo.invoice_items.select do |ii|
       invoices.any? { |invoice| invoice.id == ii.invoice_id }
     end
   end

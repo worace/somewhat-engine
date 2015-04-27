@@ -53,11 +53,5 @@ class InvoiceTest < Minitest::Spec
   def test_it_can_find_transactions
     assert_equal Transaction, @invoice.transactions[0].class
   end
-  
-  def test_it_can_create_a_charge
-    result = @@engine.transaction_repository.transactions.size
-    @invoice.charge(credit_card_number: '1111222233334444',  credit_card_expiration_date: "10/14", result: "success")
-    assert_equal @@engine.transaction_repository.transactions.size, result+1
-  end
 
 end

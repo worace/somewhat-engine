@@ -12,22 +12,6 @@ class InvoiceRepository
     "#<#{self.class} #{invoices.size} rows>"
   end
 
-  def create(data)
-    invoice_id = invoices.last.id + 1
-    create_invoice_items(data, invoice_id)
-    create_invoice(data, invoice_id)
-  end
-
-  def create_invoice(data, invoice_id)
-    new_invoice = add_invoice(data, invoice_id)
-    invoices << new_invoice
-    new_invoice
-  end
-
-  def create_invoice_items(data, invoice_id)
-    invoice_item_repo.create(data, invoice_id)
-  end
-
   def all
     invoices
   end
@@ -119,16 +103,4 @@ class InvoiceRepository
   def invoice_item_repo
     parent_engine.invoice_item_repository
   end
-
-  def add_invoice(data, invoice_id)
-    Invoice.new(self,
-                id: invoice_id,
-                customer_id: data[:customer].id,
-                merchant_id: data[:merchant].id,
-                status: "shipped",
-                created_at: Time.now.strftime("%d/%m/%Y %H:%M"),
-                updated_at: Time.now.strftime("%d/%m/%Y %H:%M")
-                )
-  end
-
 end

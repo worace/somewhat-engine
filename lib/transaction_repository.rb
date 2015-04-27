@@ -80,19 +80,4 @@ class TransactionRepository
   def find_all_by_updated_at(date)
     transactions.find_all {|data| data.updated_at == date}
   end
-
-  private
-
-  def create_transaction(data, id)
-    Transaction.new(self,
-                    id: transactions.last.id + 1,
-                    invoice_id: id,
-                    credit_card_number: data[:credit_card_number],
-                    credit_card_expiration_date: data[:credit_card_expiration],
-                    result: data[:result],
-                    created_at: Time.now.strftime("%d/%m/%Y %H:%M"),
-                    updated_at: Time.now.strftime("%d/%m/%Y %H:%M")
-                    )
-  end
-
 end
