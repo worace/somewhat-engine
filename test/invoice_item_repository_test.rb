@@ -50,26 +50,6 @@ class InvoiceItemRepositoryTest < Minitest::Spec
     assert_equal @invoice_item_repository.find_by_invoice_id(1).object_id, result
   end
 
-  def test_it_can_find_a_item_by_quantity
-    result = @invoice_item_repository.invoice_items[0].object_id
-    assert_equal @invoice_item_repository.find_by_quantity(5).object_id, result
-  end
-
-  def test_it_can_find_a_item_by_unit_price
-    result = @invoice_item_repository.invoice_items[0].object_id
-    assert_equal @invoice_item_repository.find_by_unit_price(BigDecimal.new"136.35").object_id, result
-  end
-
-  def test_it_can_find_a_item_by_created_at
-    result = @invoice_item_repository.invoice_items[0].object_id
-    assert_equal @invoice_item_repository.find_by_created_at(Date.parse("2012-03-27 14:53:59 UTC")).object_id, result
-  end
-
-  def test_it_can_find_a_item_by_updated_at
-    result = @invoice_item_repository.invoice_items[0].object_id
-    assert_equal @invoice_item_repository.find_by_updated_at(Date.parse("2012-03-27 14:53:59 UTC")).object_id, result
-  end
-
   def test_it_can_find_all_matches_by_id
     assert_equal 1, @invoice_item_repository.find_all_by_id(1).size
   end
@@ -80,21 +60,5 @@ class InvoiceItemRepositoryTest < Minitest::Spec
 
   def test_it_can_find_all_items_by_invoice_id
     assert_equal 8, @invoice_item_repository.find_all_by_invoice_id(1).size
-  end
-
-  def test_it_can_find_all_items_by_quantity
-    assert_equal 2164, @invoice_item_repository.find_all_by_quantity(5).size
-  end
-
-  def test_it_can_find_all_items_by_unit_price
-    assert_equal 7, @invoice_item_repository.find_all_by_unit_price(BigDecimal.new"136.35").size
-  end
-
-  def test_it_can_find_all_items_by_created_at
-    assert_equal 21687, @invoice_item_repository.find_all_by_created_at(Date.parse("2012-03-27 14:53:59 UTC")).size
-  end
-
-  def test_it_can_find_all_items_by_updated_at
-    assert_equal 21687, @invoice_item_repository.find_all_by_updated_at(Date.parse("2012-03-27 14:53:59 UTC")).size
   end
 end

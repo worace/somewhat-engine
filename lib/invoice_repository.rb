@@ -28,22 +28,6 @@ class InvoiceRepository
     invoices.find { |data| data.customer_id == id }
   end
 
-  def find_by_merchant_id(id)
-    invoices.find { |data| data.merchant_id == id }
-  end
-
-  def find_by_status(status)
-    invoices.find { |data| data.status.downcase == status.downcase }
-  end
-
-  def find_by_created_at(date)
-    invoices.find { |data| data.created_at == date }
-  end
-
-  def find_by_updated_at(date)
-    invoices.find { |data| data.updated_at == date }
-  end
-
   def find_all_by_id(id)
     invoices.find_all { |data| data.id == id }
   end
@@ -52,20 +36,8 @@ class InvoiceRepository
     invoices.find_all { |data| data.customer_id == id }
   end
 
-  def find_all_by_merchant_id(id)
-    invoices.find_all { |data| data.merchant_id == id }
-  end
-
   def find_all_by_status(status)
     invoices.find_all { |data| data.status.downcase == status.downcase }
-  end
-
-  def find_all_by_created_at(date)
-    invoices.find_all { |data| data.created_at == date }
-  end
-
-  def find_all_by_updated_at(date)
-    invoices.find_all { |data| data.updated_at == date }
   end
 
   def find_dates_for_successful_invoices

@@ -29,7 +29,7 @@ class InvoiceTest < Minitest::Spec
   end
 
   def test_it_has_a_status
-    assert_equal "shipped", @invoice.status 
+    assert_equal "shipped", @invoice.status
   end
 
   def test_it_can_retrieve_its_invoice_items
@@ -44,10 +44,6 @@ class InvoiceTest < Minitest::Spec
 
   def test_it_can_find_its_customer_object
     assert_equal Customer, @invoice.customer.class
-  end
-
-  def test_it_can_find_its_merchant_object
-    assert_equal Merchant, @invoice.merchant.class
   end
 
   def test_it_can_find_transactions

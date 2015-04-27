@@ -32,19 +32,4 @@ class MerchantTest < Minitest::Spec
     assert_equal Date, @merchant.updated_at.class
   end
 
-  def test_it_returns_the_merchants_items
-    assert_equal Array, @merchant.items.class
-    assert_equal Item, @merchant.items[0].class
-  end
-
-  def test_it_returns_the_merchants_invoice_items
-    assert_equal Array, @merchant.invoice_items.class
-    assert_equal InvoiceItem, @merchant.invoice_items[0].class
-  end
-
-  def test_it_returns_the_merchants_invoice
-    assert_equal Array, @merchant.invoices.class
-    assert_equal Invoice, @merchant.invoices[0].class
-  end
-
 end

@@ -41,10 +41,6 @@ class Invoice
     customer_repo.find_by_id(customer_id)
   end
 
-  def merchant
-    merchant_repo.find_by_id(merchant_id)
-  end
-
   private
 
   def sales_engine
@@ -61,10 +57,6 @@ class Invoice
 
   def invoice_item_repo
     sales_engine.invoice_item_repository
-  end
-
-  def merchant_repo
-    sales_engine.merchant_repository
   end
 
   def customer_repo

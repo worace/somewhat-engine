@@ -41,27 +41,9 @@ class TransactionRepositoryTest < Minitest::Spec
     assert_equal @transaction, @repo.find_by_invoice_id(result)
   end
 
-  def test_it_can_find_by_credit_card_number
-    result = @transaction.credit_card_number
-    assert_equal @transaction, @repo.find_by_credit_card_number(result)
-  end
-
-  def test_it_can_find_by_credit_card_expiration
-    result = @transaction.credit_card_number
-    assert_equal NilClass, @repo.find_by_credit_card_expiration_date(result).class
-  end
-
   def test_it_can_find_by_status
     assert_equal Transaction, @repo.find_by_result("success").class
     assert_equal Transaction, @repo.find_by_result("failed").class
-  end
-
-  def test_it_can_find_by_created_at_date
-    assert_equal Transaction, @repo.find_by_created_at(Date.parse("2012-03-27")).class
-  end
-
-  def test_it_can_find_by_updated_at_date
-    assert_equal Transaction, @repo.find_by_updated_at(Date.parse("2012-03-27")).class
   end
 
   def test_it_can_find_all_by_id
@@ -69,23 +51,7 @@ class TransactionRepositoryTest < Minitest::Spec
   end
 
   def test_it_can_find_all_by_invoice_id
-    assert_equal 1, result = @repo.find_all_by_invoice_id(@transaction.invoice_id).size
-  end
-
-  def test_it_can_find_all_by_credit_card_number
-    assert_equal 1, result = @repo.find_all_by_credit_card_number(@transaction.credit_card_number).size
-  end
-
-  def test_it_can_find_all_by_credit_card_expiration
-    assert_equal 5595, result = @repo.find_all_by_credit_card_expiration_date(@transaction.credit_card_expiration_date).size
-  end
-
-  def test_it_can_find_all_by_created_at_date
-    assert_equal 5595, result = @repo.find_all_by_created_at(Date.parse("2012-03-27")).size
-  end
-
-  def test_it_can_find_all_by_updated_at_date
-    assert_equal 5595, result = @repo.find_all_by_updated_at(Date.parse("2012-03-27")).size 
+    assert_equal 1, @repo.find_all_by_invoice_id(@transaction.invoice_id).size
   end
 
   def test_it_finds_all_by_result

@@ -42,22 +42,6 @@ class InvoiceRepositoryTest < Minitest::Spec
     assert_equal @invoice.customer_id, @repo.find_by_customer_id(@invoice.customer_id).customer_id
   end
 
-  def test_it_can_find_an_invoice_by_merchant_id
-    assert_equal @invoice.merchant_id, @repo.find_by_merchant_id(@invoice.merchant_id).merchant_id
-  end
-
-  def test_it_can_find_an_invoice_by_status
-    assert_equal Invoice, @repo.find_by_status(@invoice.status).class
-  end
-
-  def test_it_can_find_an_invoice_by_created_at
-    assert_equal @invoice.class, @repo.find_by_created_at(@invoice.created_at).class
-  end
-
-  def test_it_can_find_an_invoice_by_updated_at
-    assert_equal @invoice.class, @repo.find_by_updated_at(@invoice.updated_at).class
-  end
-
   def test_it_can_find_all_by_id
     assert_equal 1, @repo.find_all_by_id(@invoice.id).size
   end
@@ -65,21 +49,4 @@ class InvoiceRepositoryTest < Minitest::Spec
   def test_it_can_find_all_by_customer_id
     assert @repo.find_all_by_customer_id(@invoice.customer_id).size > 1
   end
-
-  def test_it_can_find_all_by_merchant_id
-    assert @repo.find_all_by_merchant_id(@invoice.merchant_id).size > 1
-  end
-
-  def test_it_can_find_all_by_status
-    assert @repo.find_all_by_status(@invoice.status).size > 1
-  end
-
-  def test_it_can_find_all_by_created_at
-    assert @repo.find_all_by_created_at(@invoice.created_at).size > 1
-  end
-
-  def test_it_can_find_all_by_updated_at
-    assert @repo.find_all_by_updated_at(@invoice.updated_at).size > 1
-  end
-
 end

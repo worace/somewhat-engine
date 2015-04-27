@@ -1,6 +1,6 @@
 require_relative './test_helper'
 
-class InvoiceParserTest < Minitest::Test 
+class InvoiceParserTest < Minitest::Test
 
   def test_it_can_read_from_CSV_file
     invoice_parser = InvoiceParser.new("./data")

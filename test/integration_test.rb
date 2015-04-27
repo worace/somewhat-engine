@@ -11,24 +11,6 @@ class IntegrationTest < Minitest::Spec
     end
   end
 
-  def test_a_merchant_can_retrieve_an_array_of_associated_items
-    merchant = @@engine.merchant_repository.merchants[0]
-    assert_equal 15,merchant.items.size
-    assert_equal Array,merchant.items.class
-  end
-
-  def test_a_merchant_can_retrieve_an_array_of_associated_invoices
-    merchant = @@engine.merchant_repository.merchants[0]
-    assert_equal 59,merchant.invoices.size
-    assert_equal Array,merchant.invoices.class
-  end
-
-  def test_an_invoice_can_retrieve_an_array_of_associated_transactions
-    invoice = @@engine.invoice_repository.invoices[0]
-    assert_equal 1,invoice.transactions.size
-    assert_equal Array,invoice.transactions.class
-  end
-
   def test_an_invoice_can_retrieve_an_array_of_associated_invoice_items
     invoice = @@engine.invoice_repository.invoices[0]
     assert_equal 8,invoice.invoice_items.size
@@ -44,11 +26,6 @@ class IntegrationTest < Minitest::Spec
   def test_an_invoice_can_retrieve_an_instance_of_associated_customer
     invoice = @@engine.invoice_repository.invoices[0]
     assert_equal Customer,invoice.customer.class
-  end
-
-  def test_an_invoice_can_retrieve_an_instance_of_associated_merchant
-    invoice = @@engine.invoice_repository.invoices[0]
-    assert_equal Merchant,invoice.merchant.class
   end
 
   def test_an_invoice_item_can_retrieve_an_instance_of_associated_invoice

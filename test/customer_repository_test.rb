@@ -10,7 +10,7 @@ class CustomerRepositoryTest < Minitest::Spec
       @@flag = true
     end
     @customer_repository = @@engine.customer_repository
-  end 
+  end
 
   def test_it_creates_an_array_of_customer_objects_from_csv
     result = @customer_repository.customers[0].class
