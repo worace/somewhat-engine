@@ -18,16 +18,6 @@ class Merchant
     item_repo.find_all_by_merchant_id(id)
   end
 
-  def invoice_items
-    invoice_item_repo.invoice_items.select do |invoice_item|
-      items.any? { |item| item.id == invoice_item.item_id }
-    end
-  end
-
-  def invoices
-    invoice_repo.find_all_by_merchant_id(id)
-  end
-
   private
 
   def sales_engine

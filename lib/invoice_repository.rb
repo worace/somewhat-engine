@@ -40,34 +40,6 @@ class InvoiceRepository
     invoices.find_all { |data| data.status.downcase == status.downcase }
   end
 
-  def find_dates_for_successful_invoices
-    successful_transactions
-    successful_invoices
-    map_dates_for_invoices
-  end
-
-  private
-
-  def successful_transactions
-    @transactions_result ||= transaction_repo.transactions.select do |entry|
-      entry.result == "success"
-    end
-  end
-
-  def successful_invoices
-    @invoices_result ||= invoices.select do |invoice|
-      successful_transactions.any? do |entry|
-        entry.invoice_id == invoice.id
-      end
-    end
-  end
-
-  def map_dates_for_invoices
-    @dates_result ||= successful_invoices.map do |invoice|
-      invoice.created_at
-    end
-  end
-
   def transaction_repo
     parent_engine.transaction_repository
   end

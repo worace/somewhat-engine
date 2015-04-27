@@ -24,14 +24,6 @@ class ItemRepository
     items.find { |data| data.id == id }
   end
 
-  def find_by_name(name)
-    items.find { |data| data.name.downcase == name.downcase }
-  end
-
-  def find_by_description(description)
-    items.find { |data| data.description.downcase == description.downcase }
-  end
-
   def find_all_by_id(id)
     items.find_all { |data| data.id == id }
   end

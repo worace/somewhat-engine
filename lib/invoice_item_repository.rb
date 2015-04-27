@@ -32,22 +32,6 @@ class InvoiceItemRepository
     invoice_items.find { |data| data.invoice_id == id }
   end
 
-  def find_by_quantity(quantity)
-    invoice_items.find { |data| data.quantity == quantity }
-  end
-
-  def find_by_unit_price(price)
-    invoice_items.find { |data| data.unit_price == price }
-  end
-
-  def find_by_created_at(date)
-    invoice_items.find { |data| data.created_at == date }
-  end
-
-  def find_by_updated_at(date)
-    invoice_items.find { |data| data.updated_at == date }
-  end
-
   def find_all_by_id(id)
     invoice_items.find_all { |data| data.id == id }
   end
@@ -58,21 +42,5 @@ class InvoiceItemRepository
 
   def find_all_by_invoice_id(id)
     invoice_items.find_all { |data| data.invoice_id == id }
-  end
-
-  def find_all_by_quantity(quantity)
-    invoice_items.find_all { |data| data.quantity == quantity }
-  end
-
-  def find_all_by_unit_price(price)
-    invoice_items.find_all { |data| data.unit_price == price }
-  end
-
-  def find_all_by_created_at(date)
-    invoice_items.find_all { |data| data.created_at == date }
-  end
-
-  def find_all_by_updated_at(date)
-    invoice_items.find_all { |data| data.updated_at == date }
   end
 end
